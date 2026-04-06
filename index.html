@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Asesorías Select BUAP 2026 | Tu Futuro Universitario</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@200..800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#7fa500",
+                        "outline-variant": "#c6c5d4",
+                        "surface-container-low": "#f5f2fb",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#8390f2",
+                        "surface-container-highest": "#e4e1ea",
+                        "secondary-fixed": "#ffdbcf",
+                        "on-background": "#1b1b21",
+                        "primary-fixed": "#dfe0ff",
+                        "inverse-primary": "#bcc2ff",
+                        "on-primary-fixed-variant": "#303c9a",
+                        "primary-fixed-dim": "#bcc2ff",
+                        "surface-container": "#efecf5",
+                        "surface-tint": "#4955b3",
+                        "on-secondary-fixed-variant": "#822800",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2eff8",
+                        "surface-variant": "#e4e1ea",
+                        "on-primary": "#ffffff",
+                        "secondary": "#a43c12",
+                        "on-secondary-fixed": "#380c00",
+                        "on-surface-variant": "#454652",
+                        "secondary-container": "#fe7e4f",
+                        "on-tertiary-fixed-variant": "#3a4d00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#6b1f00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#000c62",
+                        "surface-container-high": "#eae7ef",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1b21",
+                        "background": "#fbf8ff",
+                        "surface-bright": "#fbf8ff",
+                        "on-tertiary-fixed": "#151f00",
+                        "surface": "#fbf8ff",
+                        "inverse-surface": "#303036",
+                        "tertiary-fixed": "#bef500",
+                        "tertiary-fixed-dim": "#a6d700",
+                        "outline": "#767683",
+                        "secondary-fixed-dim": "#ffb59c",
+                        "tertiary": "#151f00",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000b60",
+                        "tertiary-container": "#273500",
+                        "surface-dim": "#dbd9e1",
+                        "primary-container": "#142283"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+
+</head>
+
+<body
+    class="bg-background text-on-background font-sans selection:bg-tertiary-fixed selection:text-on-tertiary-fixed overflow-x-hidden">
+    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,11,96,0.06)]">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-3xl">school</span>
+                <span class="text-2xl font-serif italic text-indigo-900 leading-none">Asesorías Select</span>
+            </div>
+
+            <!-- Links desktop (se ocultan en mobile) -->
+            <div class="hidden md:flex gap-8 items-center">
+                <a class="text-indigo-800 font-medium hover:scale-105 transition-transform duration-200"
+                    href="#modalidad">Modalidad</a>
+                <a class="text-indigo-800 font-medium hover:scale-105 transition-transform duration-200"
+                    href="#precio">Inversión</a>
+                <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                    target="_blank" rel="noopener noreferrer"
+                    class="bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all">
+                    Enviar WhatsApp
+                </a>
+            </div>
+
+            <!-- Burger (solo mobile) -->
+            <button id="burger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false"
+                class="md:hidden flex flex-col justify-center items-center gap-[5px] w-9 h-9 rounded-lg p-1 hover:bg-primary/5 transition-colors">
+                <span id="b1"
+                    class="block w-5 h-[1.5px] bg-primary rounded-full origin-center transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.23,1,0.32,1)]"></span>
+                <span id="b2"
+                    class="block w-5 h-[1.5px] bg-primary rounded-full origin-center transition-[transform,opacity,width] duration-[350ms] ease-[cubic-bezier(0.23,1,0.32,1)]"></span>
+                <span id="b3"
+                    class="block w-5 h-[1.5px] bg-primary rounded-full origin-center transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.23,1,0.32,1)]"></span>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- Fuera del nav -->
+    <div id="overlay" onclick="toggleMenu()"
+        class="fixed inset-0 bg-primary/20 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+    </div>
+
+    <div id="mobileMenu"
+        class="fixed top-0 left-0 right-0 bg-white/97 backdrop-blur-xl px-6 pt-20 pb-8 z-40 shadow-lg -translate-y-full transition-transform duration-[400ms] ease-[cubic-bezier(0.23,1,0.32,1)] md:hidden">
+        <a href="#modalidad" onclick="toggleMenu()" class="menu-link">Modalidad</a>
+        <a href="#precio" onclick="toggleMenu()" class="menu-link">Inversión</a>
+        <a href="#" onclick="toggleMenu()" class="menu-link">Sobre el curso</a>
+        <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+            target="_blank" rel="noopener noreferrer"
+            class="mt-5 block w-full text-center bg-green-500 text-white px-6 py-4 rounded-full font-bold text-base hover:bg-green-600 active:scale-95 transition-all">
+            Enviar WhatsApp
+        </a>
+    </div>
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 hero-gradient -z-10"></div>
+        <!-- Decorative Glow -->
+        <div
+            class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-tertiary-fixed/20 blur-[120px] rounded-full">
+        </div>
+        <div
+            class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-secondary-container/20 blur-[100px] rounded-full">
+        </div>
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-block">
+                    <span
+                        class="text-tertiary-fixed font-bold tracking-widest uppercase text-sm block mb-2 px-1">Admisión
+                        BUAP 2026</span>
+                    <h1 class="text-5xl md:text-7xl font-serif italic text-white leading-[1.1]">Asegura tu lugar en la
+                        BUAP 2026</h1>
+                </div>
+                <p class="text-xl text-primary-fixed leading-relaxed max-w-lg">
+                    10 asesoras expertas, 4 áreas del examen, un solo pago de <span
+                        class="text-tertiary-fixed font-bold">$400 MXN</span>. El camino a la universidad comienza aquí.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 items-center">
+                    <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center bg-secondary-container text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 active:scale-95 active:scale-95 transition-all duration-300 no-underline shadow-xl shadow-black-500/20 transform">
+                        ¡Inscribirme Hoy!
+                    </a>
+                </div>
+            </div>
+            <div class="relative hidden md:block">
+                <div
+                    class="rounded-3xl overflow-hidden shadow-2xl rotate-2 transform hover:rotate-0 transition-transform duration-500 border-8 border-white/10">
+                    <img alt="Estudiantes felices" class="w-full h-[600px] object-cover"
+                        data-alt="Group of diverse, energetic university students studying together in a modern bright library with sunlight filtering through large windows"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwrkGfWjTZWWWmJSgoR5hdtf1Igyjl2WM7XmCX96Bq5Xkm4T-JVJp8HWJUQNYuPRWsEGb6iORdj66BaP0KuP3XJPfRtDmlWlDJh5Q3POKhpOioVVqDzRvGAO2Hl939UBwCWG8kE2IQMD_xFUqdrJ2Vbns4nMHPV4OwB5O3AZijQ7h-EZYe5Q_0tkb7Kqnl6FWLgpXHfDJ5dJOgLn-EB6Lsdls1av1_9Q6PW0tfllJYkbuKqJsF_OcCwmZ1ip0P1xJ2MO2wlsja9NM" />
+                </div>
+                <div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl shadow-xl max-w-[240px]">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary">groups</span>
+                        </div>
+                        <span class="font-bold text-primary">+500 Guías</span>
+                    </div>
+                    <p class="text-sm text-on-surface-variant">Material exclusivo actualizado para el proceso 2026.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Sobre el Curso -->
+    <section class="py-24 tonal-shift-bg">
+        <div class="container mx-auto px-6">
+            <div class="mb-16">
+                <span class="text-secondary font-bold tracking-widest uppercase text-xs">Excelencia Académica</span>
+                <h2 class="text-4xl md:text-5xl font-serif italic text-primary mt-2">Expertas en tu formación</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">biotech</span>
+                    </div>
+                    <h3 class="text-xl font-serif text-primary mb-3">Naturales</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Biología, Química y Salud con
+                        instructoras capacitadas directamente por la BUAP.</p>
+                </div>
+                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-secondary text-3xl">architecture</span>
+                    </div>
+                    <h3 class="text-xl font-serif text-primary mb-3">Ingeniería</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Física y Matemáticas avanzadas con un
+                        enfoque práctico y dinámico.</p>
+                </div>
+                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-tertiary-fixed/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-on-tertiary-fixed-variant text-3xl">public</span>
+                    </div>
+                    <h3 class="text-xl font-serif text-primary mb-3">Sociales</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Historia, formación cívica y ética para
+                        un puntaje perfecto en humanidades.</p>
+                </div>
+                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">payments</span>
+                    </div>
+                    <h3 class="text-xl font-serif text-primary mb-3">Económicas</h3>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">Administración y contabilidad
+                        simplificada para futuros financieros.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modalidad Virtual vs Presencial -->
+    <section class="py-24 bg-surface" id="modalidad">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl md:text-6xl font-serif italic text-primary">Elige tu propia ruta de aprendizaje</h2>
+                <p class="text-on-surface-variant mt-6">Flexibilidad total para que estudies a tu ritmo, sin sacrificar
+                    resultados.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <!-- Virtual -->
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-primary/5 rounded-3xl -rotate-1 group-hover:rotate-0 transition-transform">
+                    </div>
+                    <div
+                        class="relative bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-outline-variant/10 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div>
+                                <span
+                                    class="bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">En
+                                    Vivo</span>
+                                <h3 class="text-3xl font-serif text-primary mt-4 italic">Modalidad Virtual</h3>
+                            </div>
+                            <span class="material-symbols-outlined text-primary text-4xl">devices</span>
+                        </div>
+                        <ul class="space-y-6 flex-grow">
+                            <li class="flex gap-4">
+                                <span class="material-symbols-outlined text-tertiary-fixed-dim shrink-0"
+                                    data-weight="fill">schedule</span>
+                                <div>
+                                    <p class="font-bold text-primary">Lunes a Domingo 7pm - 11pm</p>
+                                    <p class="text-sm text-on-surface-variant">4 clases simultáneas vía Zoom.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="material-symbols-outlined text-tertiary-fixed-dim shrink-0"
+                                    data-weight="fill">forum</span>
+                                <div>
+                                    <p class="font-bold text-primary">Grupos Premium</p>
+                                    <p class="text-sm text-on-surface-variant">Acceso a WhatsApp/Facebook con 100+
+                                        simulaciones.</p>
+                                </div>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="material-symbols-outlined text-tertiary-fixed-dim shrink-0"
+                                    data-weight="fill">event_available</span>
+                                <div>
+                                    <p class="font-bold text-primary">Hasta el final</p>
+                                    <p class="text-sm text-on-surface-variant">El curso termina el 19 de Junio de 2026.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Presencial -->
+                <div class="relative group">
+                    <div
+                        class="absolute inset-0 bg-secondary/5 rounded-3xl rotate-1 group-hover:rotate-0 transition-transform">
+                    </div>
+                    <div
+                        class="relative bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-outline-variant/10 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-8">
+                            <div>
+                                <span
+                                    class="bg-secondary text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">Cara
+                                    a Cara</span>
+                                <h3 class="text-3xl font-serif text-primary mt-4 italic">Modalidad Presencial</h3>
+                            </div>
+                            <span class="material-symbols-outlined text-secondary text-4xl">location_on</span>
+                        </div>
+                        <div class="space-y-6 flex-grow">
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <div class="bg-surface-container p-4 rounded-xl">
+                                    <p class="font-bold text-primary">Puebla</p>
+                                    <p class="text-xs text-on-surface-variant">Sábados intensivos</p>
+                                </div>
+                                <div class="bg-surface-container p-4 rounded-xl">
+                                    <p class="font-bold text-primary">Tehuacán</p>
+                                    <p class="text-xs text-on-surface-variant">Domingos de enfoque</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex gap-4 items-center">
+                                    <span class="material-symbols-outlined text-secondary shrink-0">check_circle</span>
+                                    <p class="text-on-surface-variant">Pensamiento Matemático &amp; Comprensión Lectora
+                                    </p>
+                                </li>
+                                <li class="flex gap-4 items-center">
+                                    <span class="material-symbols-outlined text-secondary shrink-0">check_circle</span>
+                                    <p class="text-on-surface-variant">Habilidades Blandas &amp; Orientación</p>
+                                </li>
+                                <li class="flex gap-4 items-center">
+                                    <span class="material-symbols-outlined text-secondary shrink-0">sell</span>
+                                    <p class="text-sm font-bold text-secondary italic">Cuota mínima de $10 MXN para
+                                        salón y materiales.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Precio Section -->
+    <section class="py-24 tonal-shift-bg overflow-hidden" id="precio">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-4xl mx-auto bg-primary rounded-[3rem] p-12 md:p-24 relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary-fixed/10 blur-[80px] -mr-32 -mt-32"></div>
+                <span class="text-tertiary-fixed font-bold tracking-widest uppercase text-sm block mb-4">Inversión
+                    Única</span>
+                <h2 class="text-4xl md:text-7xl font-serif italic text-white mb-8"><b>Un solo pago </b> para ambas
+                    modalidades</h2>
+                <div class="flex flex-col items-center justify-center gap-2 mb-10">
+                    <span class="text-7xl md:text-9xl font-bold text-tertiary-fixed leading-none">$400</span>
+                    <span class="text-2xl text-primary-fixed uppercase tracking-tighter font-bold">Pesos</span>
+                </div>
+                <p class="text-primary-fixed text-lg mb-12 max-w-xl mx-auto">
+                    Sin mensualidades ni costos ocultos. Acceso total a las plataformas, clases en vivo y materiales
+                    físicos/digitales.
+                </p>
+                <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-block bg-tertiary-fixed text-on-tertiary-fixed px-12 py-5 rounded-full font-extrabold text-xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-tertiary-fixed/20 no-underline">
+                    Enviar WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Beneficios Bento Grid -->
+    <section class="py-24 bg-surface">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 bg-surface-container-low rounded-3xl p-10 flex flex-col justify-between">
+                    <div>
+                        <span class="text-primary font-bold text-sm uppercase tracking-widest">Lo que obtienes</span>
+                        <h3 class="text-3xl font-serif italic text-primary mt-4">Acompañamiento Personalizado</h3>
+                        <div class="grid sm:grid-cols-2 gap-6 mt-10">
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-secondary"
+                                    data-weight="fill">verified</span>
+                                <p class="text-on-surface-variant">Clases virtuales diarias y grabadas para repaso
+                                    infinito.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-secondary"
+                                    data-weight="fill">verified</span>
+                                <p class="text-on-surface-variant">Biblioteca masiva de materiales y guías interactivas.
+                                </p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-secondary"
+                                    data-weight="fill">verified</span>
+                                <p class="text-on-surface-variant">Asesoría experta en cada paso del proceso de
+                                    admisión.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <span class="material-symbols-outlined text-secondary"
+                                    data-weight="fill">verified</span>
+                                <p class="text-on-surface-variant">Simulacros reales bajo presión de tiempo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-secondary-container rounded-3xl p-10 text-on-secondary-container relative overflow-hidden flex flex-col justify-between">
+                    <span
+                        class="material-symbols-outlined text-8xl absolute -right-4 -bottom-4 opacity-20">rocket_launch</span>
+                    <h3 class="text-3xl font-serif italic leading-tight">Tu meta es entrar a la BUAP, nuestra meta es
+                        llevarte ahí.</h3>
+                    <div class="mt-8">
+                        <p class="text-4xl font-bold">100%</p>
+                        <p class="text-sm opacity-80">Compromiso con tu ingreso</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-indigo-950 pt-20 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+                <div class="max-w-sm">
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="material-symbols-outlined text-lime-400 text-3xl">school</span>
+                        <span class="text-2xl font-serif text-white">Asesorías Select</span>
+                    </div>
+                    <p class="text-indigo-200/60 font-light leading-relaxed">
+                        Preparación integral de alto rendimiento para el examen de admisión BUAP 2026. Liderados por
+                        expertos formados institucionalmente.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+                    <div>
+                        <p class="text-white font-serif mb-6">Navegación</p>
+                        <ul class="space-y-4 text-indigo-200/60 text-sm">
+                            <li><a class="hover:text-white transition-colors" href="#">Inicio</a></li>
+                            <li><a class="hover:text-white transition-colors" href="#">Sobre el Curso</a></li>
+                            <li><a class="hover:text-white transition-colors" href="#">Testimonios</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <p class="text-white font-serif mb-6">Contacto</p>
+                        <!-- Fila de contacto -->
+                        <div class="flex flex-col gap-3">
+
+                            <!-- Teléfono clickeable -->
+                            <a href="tel:+522212043005"
+                                class="flex items-center gap-3 text-indigo-200/70 hover:text-white transition-colors text-sm">
+                                <span class="material-symbols-outlined text-lime-400 text-lg">call</span>
+                                +52 221 204 3005
+                            </a>
+
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                                target="_blank" rel="noopener noreferrer"
+                                class="flex items-center gap-3 text-indigo-200/70 hover:text-white transition-colors text-sm">
+                                <span class="material-symbols-outlined text-lime-400 text-lg">chat</span>
+                                WhatsApp
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-indigo-200/40 text-xs">© 2026 Asesorías Select. BUAP 2026 Preparación.</p>
+                <p class="text-lime-400 text-xs font-bold tracking-widest uppercase">Curso Select</p>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/main.js"></script>
+</body>
+
+</html>

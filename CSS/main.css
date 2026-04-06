@@ -1,0 +1,75 @@
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.font-serif {
+    font-family: 'Newsreader', serif;
+}
+
+.font-sans {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.tonal-shift-bg {
+    background: linear-gradient(180deg, #fbf8ff 0%, #f5f2fb 100%);
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, #000b60 0%, #142283 100%);
+}
+
+body {
+    min-height: max(884px, 100dvh);
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(73, 85, 179, 0.08);
+    color: #dadbdf;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.menu-link:hover {
+    color: #4955b3;
+}
+
+/* Items que entran en cascada */
+#mobileMenu a {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#mobileMenu.open a:nth-child(1) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.05s
+}
+
+#mobileMenu.open a:nth-child(2) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.10s
+}
+
+#mobileMenu.open a:nth-child(3) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.15s
+}
+
+#mobileMenu.open a:nth-child(4) {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.20s
+}

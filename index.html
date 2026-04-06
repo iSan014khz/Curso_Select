@@ -145,53 +145,39 @@
         </a>
     </div>
     <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <div class="absolute inset-0 hero-gradient -z-10"></div>
-        <!-- Decorative Glow -->
-        <div
-            class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-tertiary-fixed/20 blur-[120px] rounded-full">
-        </div>
-        <div
-            class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-secondary-container/20 blur-[100px] rounded-full">
-        </div>
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="space-y-8">
+<header class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-20 md:pb-0 overflow-hidden bg-primary">
+
+        <img alt="Estudiantes felices BUAP" 
+             class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 md:opacity-50 md:object-[center_30%]"
+             src="IMGS/Hero.jpeg"/>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent md:hidden z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent hidden md:block z-10 pointer-events-none"></div>
+
+        <div class="absolute top-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-tertiary-fixed/20 blur-[90px] md:blur-[120px] rounded-full z-10 pointer-events-none"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-secondary-container/20 blur-[80px] md:blur-[100px] rounded-full z-10 pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 relative z-20 grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-12 items-center">
+            
+            <div class="space-y-6 md:space-y-8 text-center md:text-left mt-10 md:mt-0">
                 <div class="inline-block">
-                    <span
-                        class="text-tertiary-fixed font-bold tracking-widest uppercase text-sm block mb-2 px-1">Admisión
-                        BUAP 2026</span>
-                    <h1 class="text-5xl md:text-7xl font-serif italic text-white leading-[1.1]">Asegura tu lugar en la
-                        BUAP 2026</h1>
+                    <span class="text-tertiary-fixed font-bold tracking-widest uppercase text-xs md:text-sm block mb-2 px-1">Admisión BUAP 2026</span>
+                    <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif italic text-white leading-[1.1]">Asegura tu lugar en la BUAP 2026</h1>
                 </div>
-                <p class="text-xl text-primary-fixed leading-relaxed max-w-lg">
-                    10 asesoras expertas, 4 áreas del examen, un solo pago de <span
-                        class="text-tertiary-fixed font-bold">$400 MXN</span>. El camino a la universidad comienza aquí.
+                <p class="text-lg md:text-xl text-primary-fixed leading-relaxed max-w-lg mx-auto md:mx-0">
+                    10 asesoras expertas, 4 áreas del examen, un solo pago de <span class="text-tertiary-fixed font-bold">$400 MXN</span>. El camino a la universidad comienza aquí.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-4 items-center">
+                <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start items-center">
                     <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
                         target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center bg-secondary-container text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 active:scale-95 active:scale-95 transition-all duration-300 no-underline shadow-xl shadow-black-500/20 transform">
+                        class="inline-flex w-full sm:w-auto items-center justify-center bg-secondary-container text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all duration-300 no-underline shadow-xl shadow-secondary-container/30 transform">
                         ¡Inscribirme Hoy!
                     </a>
                 </div>
             </div>
-            <div class="relative hidden md:block">
-                <div
-                    class="rounded-3xl overflow-hidden shadow-2xl rotate-2 transform hover:rotate-0 transition-transform duration-500 border-8 border-white/10">
-                    <img alt="Estudiantes felices" class="w-full h-[600px] object-cover"
-                        data-alt="Group of diverse, energetic university students studying together in a modern bright library with sunlight filtering through large windows"
-                      src="IMGS/Hero.jpeg"/>
-                </div>
-                <div class="absolute bottom-4 left-4 glass-card p-6 rounded-2xl shadow-xl max-w-[240px]">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center">
-                            <span class="material-symbols-outlined text-primary">groups</span>
-                        </div>
-                        <span class="font-bold text-primary">+500 Guías</span>
-                    </div>
-                    <p class="text-sm text-on-surface-variant">Material exclusivo actualizado para el proceso 2026.</p>
-                </div>
-            </div>
+
+            <div class="hidden md:block"></div>
+
         </div>
     </header>
     <!-- Sobre el Curso -->

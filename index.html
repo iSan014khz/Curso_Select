@@ -145,27 +145,39 @@
         </a>
     </div>
     <!-- Hero Section -->
-<header class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-20 md:pb-0 overflow-hidden bg-primary">
+    <header class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-20 md:pb-0 overflow-hidden bg-primary">
 
-        <img alt="Estudiantes felices BUAP" 
-             class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 md:opacity-50 md:object-[center_30%]"
-             src="IMGS/Hero.jpeg"/>
+        <img alt="Estudiantes felices BUAP"
+            class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 md:opacity-50 md:object-[center_30%]"
+            src="IMGS/Hero.jpeg" />
 
-        <div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent md:hidden z-10 pointer-events-none"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent hidden md:block z-10 pointer-events-none"></div>
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent md:hidden z-10 pointer-events-none">
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent hidden md:block z-10 pointer-events-none">
+        </div>
 
-        <div class="absolute top-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-tertiary-fixed/20 blur-[90px] md:blur-[120px] rounded-full z-10 pointer-events-none"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-secondary-container/20 blur-[80px] md:blur-[100px] rounded-full z-10 pointer-events-none"></div>
+        <div
+            class="absolute top-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-tertiary-fixed/20 blur-[90px] md:blur-[120px] rounded-full z-10 pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-[-10%] left-[-10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-secondary-container/20 blur-[80px] md:blur-[100px] rounded-full z-10 pointer-events-none">
+        </div>
 
         <div class="container mx-auto px-6 relative z-20 grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-12 items-center">
-            
+
             <div class="space-y-6 md:space-y-8 text-center md:text-left mt-10 md:mt-0">
                 <div class="inline-block">
-                    <span class="text-tertiary-fixed font-bold tracking-widest uppercase text-xs md:text-sm block mb-2 px-1">Admisión BUAP 2026</span>
-                    <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif italic text-white leading-[1.1]">Asegura tu lugar en la BUAP 2026</h1>
+                    <span
+                        class="text-tertiary-fixed font-bold tracking-widest uppercase text-xs md:text-sm block mb-2 px-1">Admisión
+                        BUAP 2026</span>
+                    <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif italic text-white leading-[1.1]">Asegura tu
+                        lugar en la BUAP 2026</h1>
                 </div>
                 <p class="text-lg md:text-xl text-primary-fixed leading-relaxed max-w-lg mx-auto md:mx-0">
-                    10 asesoras expertas, 4 áreas del examen, un solo pago de <span class="text-tertiary-fixed font-bold">$400 MXN</span>. El camino a la universidad comienza aquí.
+                    10 asesoras expertas, 4 áreas del examen, un solo pago de <span
+                        class="text-tertiary-fixed font-bold">$400 MXN</span>. El camino a la universidad comienza aquí.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start items-center">
                     <a href="https://wa.me/2212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
@@ -456,7 +468,119 @@
             </div>
         </div>
     </footer>
+
+    <button onclick="toggleShareModal()"
+        class="fixed bottom-6 right-6 z-40 bg-secondary-container text-on-secondary-container p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group border border-white/20">
+        <span class="material-symbols-outlined text-3xl">share</span>
+    </button>
+
+    <div id="shareModal"
+        class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+
+        <div class="absolute inset-0 bg-primary/40 backdrop-blur-sm" onclick="toggleShareModal()"></div>
+
+        <div id="shareCard"
+            class="relative bg-surface rounded-[2rem] shadow-2xl w-[90%] max-w-md p-8 transform scale-95 transition-transform duration-300">
+
+            <button onclick="toggleShareModal()"
+                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-surface-container hover:bg-error/10 hover:text-error transition-colors">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <span class="material-symbols-outlined text-primary text-3xl">diversity_3</span>
+                </div>
+                <h3 class="text-2xl font-serif italic text-primary font-bold leading-tight">¿Quieres
+                    compartir<br>nuestra página?</h3>
+                <p class="text-on-surface-variant text-sm mt-3">Envíala a tus papás o amigos para que conozcan tu plan
+                    de estudio hacia la BUAP.</p>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="shareWhatsApp()"
+                    class="w-full flex items-center justify-center gap-3 bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#20b958] active:scale-[0.98] transition-all shadow-md">
+                    <span class="material-symbols-outlined">chat</span>
+                    Enviar por WhatsApp
+                </button>
+
+                <button onclick="copyLink()"
+                    class="w-full flex items-center justify-center gap-3 bg-surface-container-high text-on-surface py-4 rounded-xl font-bold hover:bg-surface-variant active:scale-[0.98] transition-all">
+                    <span class="material-symbols-outlined">link</span>
+                    Copiar Enlace
+                </button>
+
+                <button onclick="nativeShare()"
+                    class="w-full flex items-center justify-center gap-3 border-2 border-primary/10 text-primary py-4 rounded-xl font-bold hover:bg-primary/5 active:scale-[0.98] transition-all md:hidden">
+                    <span class="material-symbols-outlined">ios_share</span>
+                    Más opciones
+                </button>
+            </div>
+
+        </div>
+    </div>
     <script src="JS/main.js"></script>
+    <script>// ==========================================
+        // LÓGICA PARA EL MODAL DE COMPARTIR
+        // ==========================================
+
+        // 1. Función para abrir y cerrar el modal con animación
+        function toggleShareModal() {
+            const modal = document.getElementById('shareModal');
+            const card = document.getElementById('shareCard');
+
+            if (modal.classList.contains('hidden')) {
+                // Mostrar
+                modal.classList.remove('hidden');
+                // Un pequeño retraso para que la animación de CSS funcione
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    card.classList.remove('scale-95');
+                    card.classList.add('scale-100');
+                }, 10);
+            } else {
+                // Ocultar
+                modal.classList.add('opacity-0');
+                card.classList.remove('scale-100');
+                card.classList.add('scale-95');
+                // Esperar a que termine la animación para ocultar el div
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // 2. Función para compartir directo a WhatsApp
+        function shareWhatsApp() {
+            // Este es el mensaje que se enviará junto con tu link
+            const mensaje = "¡Hola! Encontré este curso de preparación para el examen de la BUAP 2026 y me interesa mucho. Checalo: ";
+            // Obtenemos tu dominio actual automáticamente (ej. cursoselect.vercel.app)
+            const url = window.location.href;
+
+            // Abrimos WhatsApp con el mensaje pre-cargado
+            window.open(`https://wa.me/?text=${encodeURIComponent(mensaje + " " + url)}`, '_blank');
+        }
+
+        // 3. Función para copiar el enlace al portapapeles
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                // Cambiamos el texto temporalmente para confirmar
+                alert("¡Enlace copiado al portapapeles!");
+            });
+        }
+
+        // 4. Función Nativa (Abre el menú de compartir de iOS o Android)
+        function nativeShare() {
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Curso Select BUAP 2026',
+                    text: '¡Mira este curso para asegurar lugar en la universidad!',
+                    url: url
+                }).catch((error) => console.log('Error compartiendo', error));
+            }
+        }</script>
 </body>
 
 </html>

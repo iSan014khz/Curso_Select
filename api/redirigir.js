@@ -88,7 +88,10 @@ module.exports = async function handler(req, res) {
     const ua = String(req.headers['user-agent'] || '');
     const registro = registrarClic({
       codigo,
-      destino: tipo === 'w' ? 'whatsapp' : 'sitio',
+      // 'wa' | 'web': son los unicos valores que acepta registrar_clic en Supabase
+      // (check constraint + raise). Cualquier otro se rechaza EN SILENCIO, porque el
+      // registro va en un catch que nunca bloquea la redireccion. No los cambies.
+      destino: tipo === 'w' ? 'wa' : 'web',
       esBot: !ua || BOTS.test(ua),
       ip: ipDe(req),
       ua,

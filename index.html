@@ -15,8 +15,18 @@
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235645d4'/%3E%3Cpath d='M16 7 29 13 16 19 3 13z' fill='%23fff'/%3E%3Cpath d='M8 17v4.5c0 1.8 3.6 3.5 8 3.5s8-1.7 8-3.5V17l-8 3.7z' fill='%23fff'/%3E%3C/svg%3E" />
 
     <script>
-        // Marca que hay JavaScript: habilita el menú móvil, el botón de compartir y el encabezado fijo.
-        document.documentElement.classList.add('js');
+        // Corre antes del primer pintado y decide si esta visita usa animaciones de entrada.
+        // La página se ve completa sin esto: solo se ocultan los [data-reveal] mientras Motion carga.
+        (function (d) {
+            d.classList.add('js');
+            var quiereMovimiento = window.matchMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (!quiereMovimiento || !('IntersectionObserver' in window)) return;
+            d.setAttribute('data-motion', 'pending');
+            // Guardia: si Motion no llega a tiempo (CDN caído, bloqueado o red lenta), todo se muestra sin animar.
+            setTimeout(function () {
+                if (d.getAttribute('data-motion') === 'pending') d.setAttribute('data-motion', 'off');
+            }, 2500);
+        })(document.documentElement);
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -276,12 +286,12 @@
         <!-- Sobre el Curso -->
         <section class="section" id="curso" aria-labelledby="curso-titulo">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head" data-reveal>
                     <p class="eyebrow">Excelencia Académica</p>
                     <h2 class="section-title" id="curso-titulo">Expertas en tu formación</h2>
                 </div>
                 <div class="cards cards--areas">
-                    <article class="card tint-mint">
+                    <article class="card tint-mint" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-flask" />
@@ -291,7 +301,7 @@
                         <p class="card__text">Biología, Química y Salud con instructoras capacitadas directamente por
                             la BUAP.</p>
                     </article>
-                    <article class="card tint-sky">
+                    <article class="card tint-sky" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-ruler" />
@@ -300,7 +310,7 @@
                         <h3 class="card__title">Ingeniería</h3>
                         <p class="card__text">Física y Matemáticas avanzadas con un enfoque práctico y dinámico.</p>
                     </article>
-                    <article class="card tint-peach">
+                    <article class="card tint-peach" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-globe" />
@@ -310,7 +320,7 @@
                         <p class="card__text">Historia, formación cívica y ética para un puntaje perfecto en
                             humanidades.</p>
                     </article>
-                    <article class="card tint-yellow">
+                    <article class="card tint-yellow" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-banknote" />
@@ -326,14 +336,14 @@
         <!-- Modalidad Virtual vs Presencial -->
         <section class="section section--surface" id="modalidad" aria-labelledby="modalidad-titulo">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head" data-reveal>
                     <h2 class="section-title" id="modalidad-titulo">Elige tu propia ruta de aprendizaje</h2>
                     <p class="section-lead">Flexibilidad total para que estudies a tu ritmo, sin sacrificar
                         resultados.</p>
                 </div>
                 <div class="modes">
                     <!-- Virtual -->
-                    <article class="mode">
+                    <article class="mode" data-reveal>
                         <div class="mode__top">
                             <span class="tag tag--purple">En Vivo</span>
                             <span class="mode__icon mode__icon--purple">
@@ -374,7 +384,7 @@
                         </ul>
                     </article>
                     <!-- Presencial -->
-                    <article class="mode">
+                    <article class="mode" data-reveal>
                         <div class="mode__top">
                             <span class="tag tag--orange">Cara a Cara</span>
                             <span class="mode__icon mode__icon--orange">
@@ -422,7 +432,7 @@
         <!-- Precio Section -->
         <section class="section" id="precio" aria-labelledby="precio-titulo">
             <div class="container">
-                <div class="price-card">
+                <div class="price-card" data-reveal>
                     <span class="badge">Inversión Única</span>
                     <h2 class="price-card__title" id="precio-titulo"><b>Un solo pago </b> para ambas modalidades</h2>
                     <p class="price-card__amount">
@@ -448,7 +458,7 @@
         <section class="section section--surface" id="beneficios" aria-labelledby="beneficios-titulo">
             <div class="container">
                 <div class="bento">
-                    <div class="card tint-lavender">
+                    <div class="card tint-lavender" data-reveal>
                         <p class="eyebrow">Lo que obtienes</p>
                         <h2 class="bento__title" id="beneficios-titulo">Acompañamiento Personalizado</h2>
                         <ul class="checklist">
@@ -478,7 +488,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card tint-yellow-bold bento__accent">
+                    <div class="card tint-yellow-bold bento__accent" data-reveal>
                         <div>
                             <span class="card__icon">
                                 <svg class="icon" aria-hidden="true">
@@ -499,14 +509,14 @@
         <!-- Plataforma de estudio (solo informativa: sin enlaces a la plataforma) -->
         <section class="section" id="plataforma" aria-labelledby="plataforma-titulo">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head" data-reveal>
                     <p class="eyebrow">Plataforma de estudio</p>
                     <h2 class="section-title" id="plataforma-titulo">Practica, compite y simula el examen</h2>
                     <p class="section-lead">Además de las clases en vivo, tendrás una plataforma para practicar por tu
                         cuenta con preguntas tipo EXANI II. Tu acceso se activa cuando se confirma tu pago.</p>
                 </div>
                 <div class="cards cards--platform">
-                    <article class="card tint-sky">
+                    <article class="card tint-sky" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-list-checks" />
@@ -516,7 +526,7 @@
                         <p class="card__text">Elige el tema que quieres reforzar y recibe retroalimentación de cada
                             reactivo.</p>
                     </article>
-                    <article class="card tint-yellow">
+                    <article class="card tint-yellow" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-trophy" />
@@ -526,7 +536,7 @@
                         <p class="card__text">Lo que practicas cuenta para tu posición en la liga, así que estudiar
                             tiene su recompensa.</p>
                     </article>
-                    <article class="card tint-rose">
+                    <article class="card tint-rose" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-zap" />
@@ -536,7 +546,7 @@
                         <p class="card__text">Rétalos a un duelo: en vivo si tu rival está conectado, o con 24 horas
                             para responder si no.</p>
                     </article>
-                    <article class="card tint-peach">
+                    <article class="card tint-peach" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-timer" />
@@ -546,7 +556,7 @@
                         <p class="card__text">Practica contra el reloj para que la presión del tiempo no te sorprenda
                             el día del examen.</p>
                     </article>
-                    <article class="card tint-mint">
+                    <article class="card tint-mint" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-shield-check" />
@@ -556,7 +566,7 @@
                         <p class="card__text">Cada pregunta se revisa antes de entrar al banco: formato, cálculo y
                             una resolución a ciegas.</p>
                     </article>
-                    <article class="card tint-lavender">
+                    <article class="card tint-lavender" data-reveal>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-file-text" />
@@ -566,7 +576,7 @@
                         <p class="card__text">100 guías EXANI y 50 exámenes de práctica para repasar a tu ritmo.</p>
                     </article>
                 </div>
-                <div class="cta-row">
+                <div class="cta-row" data-reveal>
                     <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
                         target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
                         <svg class="icon icon--sm" aria-hidden="true">
@@ -783,6 +793,7 @@
                 }).catch((error) => console.log('Error compartiendo', error));
             }
         }</script>
+    <script src="JS/animaciones.js"></script>
 </body>
 
 </html>

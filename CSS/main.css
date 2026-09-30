@@ -1485,6 +1485,22 @@ button {
 }
 
 /* --------------------------------------------------------------------------
+   Entradas al hacer scroll (las orquesta JS/animaciones.js)
+   Solo mientras Motion carga, y solo si la visita admite movimiento: el CSS
+   oculta [data-reveal]. Si Motion falla o tarda, <head> pasa a "off" y todo se ve.
+   -------------------------------------------------------------------------- */
+html[data-motion="pending"] [data-reveal] {
+    opacity: 0;
+}
+
+@media print {
+    html[data-motion] [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
    Hover: solo con puntero fino. En táctil un :hover se queda pegado tras el toque;
    ahí el feedback lo da :active (definido arriba).
    -------------------------------------------------------------------------- */

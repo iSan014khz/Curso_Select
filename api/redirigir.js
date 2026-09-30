@@ -42,15 +42,20 @@ function waitUntilDisponible() {
   return actual && actual.waitUntil ? actual.waitUntil.bind(actual) : null;
 }
 
+// Devuelve un estado corto que viaja en la cabecera x-clic. Sin secretos: solo dice
+// QUE paso, nunca con que credenciales. Existe porque este registro es silencioso por
+// diseno (nunca bloquea la redireccion), y sin esto un fallo es invisible.
 async function registrarClic({ codigo, destino, esBot, ip, ua }) {
   const url = process.env.SUPABASE_URL;
   const llave = process.env.SUPABASE_ANON_KEY;
-  if (!url || !llave) return;
+  if (!url) return llave ? 'falta-url' : 'sin-config';
+  if (!llave) return 'falta-llave';
 
   const controlador = new AbortController();
   const cortar = setTimeout(() => controlador.abort(), 5000);
   try {
-    await fetch(`${url.replace(/\/+$/, '')}/rest/v1/rpc/registrar_clic`, {
+    // fetch NO lanza con 4xx/5xx: hay que mirar el status a mano o el rechazo es invisible.
+    const r = await fetch(`${url.replace(/\/+$/, '')}/rest/v1/rpc/registrar_clic`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -66,8 +71,10 @@ async function registrarClic({ codigo, destino, esBot, ip, ua }) {
       }),
       signal: controlador.signal,
     });
-  } catch (_) {
+    return r.ok ? 'ok' : `http-${r.status}`;
+  } catch (e) {
     // Un fallo al registrar nunca bloquea la redirección.
+    return `fallo-${(e && e.name) || 'desconocido'}`;
   } finally {
     clearTimeout(cortar);
   }
@@ -84,6 +91,7 @@ module.exports = async function handler(req, res) {
     destino = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
   }
 
+  let estadoRegistro = valido ? 'pendiente' : 'codigo-invalido';
   if (valido) {
     const ua = String(req.headers['user-agent'] || '');
     const registro = registrarClic({
@@ -95,16 +103,18 @@ module.exports = async function handler(req, res) {
       esBot: !ua || BOTS.test(ua),
       ip: ipDe(req),
       ua,
-    }).catch(() => {});
+    }).catch((e) => `fallo-${(e && e.name) || 'desconocido'}`);
 
-    const enSegundoPlano = waitUntilDisponible();
-    if (enSegundoPlano) {
-      enSegundoPlano(registro);
-    } else {
-      await Promise.race([registro, new Promise((r) => setTimeout(r, ESPERA_MAXIMA_MS))]);
-    }
+    // Se espera siempre (con tope) para poder reportar el resultado en la cabecera.
+    // waitUntil dejaria terminar el registro despues de responder, pero entonces nunca
+    // sabriamos si funciono, que es justo el problema que este diagnostico resuelve.
+    estadoRegistro = await Promise.race([
+      registro,
+      new Promise((r) => setTimeout(() => r('timeout'), ESPERA_MAXIMA_MS)),
+    ]);
   }
 
+  res.setHeader('x-clic', estadoRegistro);
   res.setHeader('Cache-Control', 'no-store');
   res.redirect(302, destino);
 };

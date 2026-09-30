@@ -381,17 +381,13 @@ button {
     white-space: nowrap;
     cursor: pointer;
     transition:
-        transform 160ms var(--ease-out),
         background-color 150ms ease,
         border-color 150ms ease,
         color 150ms ease;
 }
 
-/* Respuesta al tocar, no al soltar: entra rápido y regresa un poco más despacio */
-.btn:active {
-    transform: scale(0.97);
-    transition-duration: 100ms;
-}
+/* La presión (scale 0.98) la anima Motion en JS/animaciones.js; aquí solo queda el cambio de color, que responde
+   al tocar aunque Motion no esté */
 
 .btn--lg {
     min-height: 52px;
@@ -1373,9 +1369,7 @@ button {
     background: var(--canvas);
     color: var(--ink);
     box-shadow: var(--elev-2);
-    transition:
-        transform 160ms var(--ease-out),
-        background-color 150ms ease;
+    transition: background-color 150ms ease;
 }
 
 .js .fab {
@@ -1383,9 +1377,7 @@ button {
 }
 
 .fab:active {
-    transform: scale(0.97);
     background: var(--surface);
-    transition-duration: 100ms;
 }
 
 .dialog {
@@ -1530,19 +1522,59 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   Entradas al hacer scroll (las orquesta JS/animaciones.js)
-   Solo mientras Motion carga, y solo si la visita admite movimiento: el CSS
-   oculta [data-reveal]. Si Motion falla o tarda, <head> pasa a "off" y todo se ve.
+   Movimiento (lo orquesta JS/animaciones.js con Motion)
+   Entradas: mientras Motion carga, el CSS oculta [data-hero] y [data-reveal]. El hero tiene una guardia más
+   corta (<html data-hero-skip>, a 1 s) porque es lo primero que se ve y no debe esperar a un CDN lento. Si
+   Motion falla o tarda, <head> pasa a "off" y todo se ve tal cual.
    -------------------------------------------------------------------------- */
-html[data-motion="pending"] [data-reveal] {
+html[data-motion="pending"] [data-reveal],
+html[data-motion="pending"]:not([data-hero-skip]) [data-hero] {
     opacity: 0;
 }
 
+/* Al escalar, el texto queda anclado a su borde izquierdo en lugar de derivar hacia el centro */
+[data-hero]:not(.hero__media),
+.section-head,
+.cta-row {
+    transform-origin: left center;
+}
+
 @media print {
+    html[data-motion] [data-hero],
     html[data-motion] [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
+        filter: none !important;
     }
+}
+
+/* Microinteracciones: capas transparentes que Motion enciende con opacity, para que el hover solo anime
+   opacity y transform (la sombra ya está pintada; no se repinta nada en cada cuadro) */
+.card[data-lift] {
+    position: relative;
+    box-shadow: var(--elev-1);
+}
+
+.card__lift {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: var(--elev-2);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.place {
+    position: relative;
+}
+
+.place__ring {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1.5px var(--brand-orange-deep);
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1595,16 +1627,6 @@ html[data-motion="pending"] [data-reveal] {
    de color y opacidad, que ayudan a entender el estado.
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-    .btn,
-    .fab {
-        transition-property: background-color, border-color, color;
-    }
-
-    .btn:active,
-    .fab:active {
-        transform: none;
-    }
-
     .burger__bar {
         transition: opacity 120ms linear;
     }

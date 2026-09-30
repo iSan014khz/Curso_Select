@@ -15,17 +15,32 @@
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235645d4'/%3E%3Cpath d='M16 7 29 13 16 19 3 13z' fill='%23fff'/%3E%3Cpath d='M8 17v4.5c0 1.8 3.6 3.5 8 3.5s8-1.7 8-3.5V17l-8 3.7z' fill='%23fff'/%3E%3C/svg%3E" />
 
     <script>
-        // Corre antes del primer pintado y decide si esta visita usa animaciones de entrada.
-        // La página se ve completa sin esto: solo se ocultan los [data-reveal] mientras Motion carga.
+        // Corre antes del primer pintado. Decide si esta visita usa animaciones y arranca la descarga de Motion.
+        // La página se ve completa sin esto: solo se ocultan [data-hero] y [data-reveal] mientras Motion carga.
         (function (d) {
             d.classList.add('js');
-            var quiereMovimiento = window.matchMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            if (!quiereMovimiento || !('IntersectionObserver' in window)) return;
+            if (!window.matchMedia || !('IntersectionObserver' in window)) return;
             d.setAttribute('data-motion', 'pending');
-            // Guardia: si Motion no llega a tiempo (CDN caído, bloqueado o red lenta), todo se muestra sin animar.
+            // Guardias: si Motion no llega a tiempo (CDN caído, bloqueado o red lenta), todo se muestra sin animar.
+            // El hero espera poco porque es lo primero que se ve; lo demás está bajo el pliegue y espera más.
+            setTimeout(function () {
+                if (d.getAttribute('data-motion') === 'pending') d.setAttribute('data-hero-skip', '');
+            }, 1000);
             setTimeout(function () {
                 if (d.getAttribute('data-motion') === 'pending') d.setAttribute('data-motion', 'off');
             }, 2500);
+            // Motion (versión fija) y sus dependencias se piden ya, en paralelo con la hoja de estilos, y no en
+            // cascada al terminar de cargar la página: el hero espera a Motion, así que cada 100 ms cuenta.
+            var cdn = 'https://cdn.jsdelivr.net/npm/';
+            ['framer-motion@13.4.6/dom', 'motion-dom@13.4.5', 'motion-utils@13.3.0'].forEach(function (paquete) {
+                var enlace = document.createElement('link');
+                enlace.rel = 'modulepreload';
+                enlace.href = cdn + paquete + '/+esm';
+                document.head.appendChild(enlace);
+            });
+            window.__motion = import(cdn + 'motion@13.4.6/+esm');
+            // El fallo lo atiende animaciones.js; esto solo evita el aviso de "promesa rechazada sin atender"
+            window.__motion.catch(function () { });
         })(document.documentElement);
     </script>
 
@@ -246,13 +261,13 @@
                 <div class="hero__grid">
 
                     <div>
-                        <span class="hero__eyebrow">Admisión BUAP 2027</span>
-                        <h1 class="hero__title" id="hero-titulo">Asegura tu lugar en la BUAP 2027</h1>
-                        <p class="hero__lead">
+                        <span class="hero__eyebrow" data-hero>Admisión BUAP 2027</span>
+                        <h1 class="hero__title" id="hero-titulo" data-hero>Asegura tu lugar en la BUAP 2027</h1>
+                        <p class="hero__lead" data-hero>
                             8 asesoras expertas, 4 áreas del examen, un solo pago de <strong>$450 MXN</strong>. El
                             camino a la universidad comienza aquí.
                         </p>
-                        <div class="hero__actions">
+                        <div class="hero__actions" data-hero>
                             <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
                                 target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
                                 <svg class="icon icon--sm" aria-hidden="true">
@@ -264,7 +279,7 @@
                         </div>
                     </div>
 
-                    <figure class="hero__media">
+                    <figure class="hero__media" data-hero>
                         <picture>
                             <source type="image/webp"
                                 srcset="IMGS/Hero-800.webp 800w, IMGS/Hero-1280.webp 1280w"
@@ -286,7 +301,7 @@
                     <h2 class="section-title" id="curso-titulo">Expertas en tu formación</h2>
                 </div>
                 <div class="cards cards--areas">
-                    <article class="card tint-mint" data-reveal>
+                    <article class="card tint-mint" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-flask" />
@@ -296,7 +311,7 @@
                         <p class="card__text">Biología, Química y Salud con instructoras capacitadas directamente por
                             la BUAP.</p>
                     </article>
-                    <article class="card tint-sky" data-reveal>
+                    <article class="card tint-sky" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-ruler" />
@@ -305,7 +320,7 @@
                         <h3 class="card__title">Ingeniería</h3>
                         <p class="card__text">Física y Matemáticas avanzadas con un enfoque práctico y dinámico.</p>
                     </article>
-                    <article class="card tint-peach" data-reveal>
+                    <article class="card tint-peach" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-globe" />
@@ -315,7 +330,7 @@
                         <p class="card__text">Historia, formación cívica y ética para un puntaje perfecto en
                             humanidades.</p>
                     </article>
-                    <article class="card tint-yellow" data-reveal>
+                    <article class="card tint-yellow" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-banknote" />
@@ -379,7 +394,7 @@
                         </ul>
                     </article>
                     <!-- Presencial -->
-                    <article class="mode" data-reveal>
+                    <article class="mode" data-reveal data-pin>
                         <div class="mode__top">
                             <span class="tag tag--orange">Cara a Cara</span>
                             <span class="mode__icon mode__icon--orange">
@@ -501,7 +516,7 @@
                         cuenta con preguntas tipo EXANI II. Tu acceso se activa cuando se confirma tu pago.</p>
                 </div>
                 <div class="cards cards--platform">
-                    <article class="card tint-sky" data-reveal>
+                    <article class="card tint-sky" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-list-checks" />
@@ -511,7 +526,7 @@
                         <p class="card__text">Elige el tema que quieres reforzar y recibe retroalimentación de cada
                             reactivo.</p>
                     </article>
-                    <article class="card tint-yellow" data-reveal>
+                    <article class="card tint-yellow" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-trophy" />
@@ -521,7 +536,7 @@
                         <p class="card__text">Lo que practicas cuenta para tu posición en la liga, así que estudiar
                             tiene su recompensa.</p>
                     </article>
-                    <article class="card tint-rose" data-reveal>
+                    <article class="card tint-rose" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-zap" />
@@ -531,7 +546,7 @@
                         <p class="card__text">Rétalos a un duelo: en vivo si tu rival está conectado, o con 24 horas
                             para responder si no.</p>
                     </article>
-                    <article class="card tint-peach" data-reveal>
+                    <article class="card tint-peach" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-timer" />
@@ -541,7 +556,7 @@
                         <p class="card__text">Practica contra el reloj para que la presión del tiempo no te sorprenda
                             el día del examen.</p>
                     </article>
-                    <article class="card tint-mint" data-reveal>
+                    <article class="card tint-mint" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-shield-check" />
@@ -551,7 +566,7 @@
                         <p class="card__text">Cada pregunta se revisa antes de entrar al banco: formato, cálculo y
                             una resolución a ciegas.</p>
                     </article>
-                    <article class="card tint-lavender" data-reveal>
+                    <article class="card tint-lavender" data-reveal data-lift>
                         <span class="card__icon">
                             <svg class="icon" aria-hidden="true">
                                 <use href="#i-file-text" />

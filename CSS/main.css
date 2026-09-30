@@ -4,11 +4,34 @@
    la página se ve completa aunque JavaScript esté bloqueado.
    ========================================================================== */
 
-/* Respaldo con las métricas de Inter: al llegar la fuente real el texto no salta */
+/* Respaldos con las métricas de Inter, para que al llegar la fuente real el texto no salte.
+   Con el eje de tamaño óptico automático Inter se hace más angosto al crecer (frente a Arial mide ~105 % en texto,
+   ~101 % en negritas chicas y ~96.6 % en titulares), así que un solo ajuste no alcanza: hay tres caras. */
 @font-face {
     font-family: "Inter Fallback";
-    src: local("Arial");
-    size-adjust: 107.06%;
+    src: local("Arial"), local("ArialMT");
+    font-weight: 400 500;
+    size-adjust: 105%;
+    ascent-override: 90.49%;
+    descent-override: 22.56%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: "Inter Fallback";
+    src: local("Arial Bold"), local("Arial-BoldMT");
+    font-weight: 600 700;
+    size-adjust: 101%;
+    ascent-override: 90.49%;
+    descent-override: 22.56%;
+    line-gap-override: 0%;
+}
+
+@font-face {
+    font-family: "Inter Fallback Display";
+    src: local("Arial Bold"), local("Arial-BoldMT");
+    font-weight: 600 700;
+    size-adjust: 96.6%;
     ascent-override: 90.49%;
     descent-override: 22.56%;
     line-gap-override: 0%;
@@ -109,6 +132,7 @@
 
     /* Tipografía */
     --font: Inter, "Inter Fallback", -apple-system, system-ui, "Segoe UI", Helvetica, sans-serif;
+    --font-display: Inter, "Inter Fallback Display", "Inter Fallback", -apple-system, system-ui, "Segoe UI", Helvetica, sans-serif;
 
     /* Layout */
     --gutter: 20px;
@@ -692,6 +716,7 @@ button {
 }
 
 .hero__title {
+    font-family: var(--font-display);
     margin-top: var(--spacing-lg);
     font-size: var(--fs-hero);
     font-weight: 600;
@@ -786,6 +811,7 @@ button {
 }
 
 .section-title {
+    font-family: var(--font-display);
     margin-top: var(--spacing-sm);
     font-size: var(--fs-title);
     font-weight: 600;
@@ -1061,6 +1087,7 @@ button {
 }
 
 .price-card__title {
+    font-family: var(--font-display);
     margin-top: var(--spacing-lg);
     font-size: var(--fs-title);
     font-weight: 600;
@@ -1078,6 +1105,7 @@ button {
 }
 
 .price-card__figure {
+    font-family: var(--font-display);
     font-size: var(--fs-price);
     font-weight: 600;
     line-height: 1;
@@ -1118,6 +1146,7 @@ button {
 }
 
 .bento__title {
+    font-family: var(--font-display);
     margin-top: var(--spacing-sm);
     font-size: 28px;
     font-weight: 600;
@@ -1157,6 +1186,7 @@ button {
 }
 
 .bento__stat {
+    font-family: var(--font-display);
     font-size: 48px;
     font-weight: 600;
     line-height: 1.1;

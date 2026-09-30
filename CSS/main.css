@@ -1009,7 +1009,6 @@ button {
 
 .places {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-xl);
 }
@@ -1032,24 +1031,6 @@ button {
 }
 
 .fact--check .icon {
-    color: var(--brand-orange-deep);
-}
-
-.note {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-xl);
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--rounded-md);
-    background: var(--card-tint-yellow);
-    font-weight: 500;
-    line-height: 1.45;
-    color: var(--charcoal);
-}
-
-.note .icon {
-    margin-top: 1px;
     color: var(--brand-orange-deep);
 }
 

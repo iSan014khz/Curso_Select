@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/w", "destination": "/api/redirigir?tipo=w" },
+    { "source": "/w/:codigo", "destination": "/api/redirigir?tipo=w&codigo=:codigo" },
+    { "source": "/g", "destination": "/api/redirigir?tipo=g" },
+    { "source": "/g/:codigo", "destination": "/api/redirigir?tipo=g&codigo=:codigo" }
+  ]
+}

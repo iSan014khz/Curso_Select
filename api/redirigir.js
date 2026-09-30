@@ -105,13 +105,21 @@ module.exports = async function handler(req, res) {
       ua,
     }).catch((e) => `fallo-${(e && e.name) || 'desconocido'}`);
 
-    // Se espera siempre (con tope) para poder reportar el resultado en la cabecera.
-    // waitUntil dejaria terminar el registro despues de responder, pero entonces nunca
-    // sabriamos si funciono, que es justo el problema que este diagnostico resuelve.
-    estadoRegistro = await Promise.race([
-      registro,
-      new Promise((r) => setTimeout(() => r('timeout'), ESPERA_MAXIMA_MS)),
-    ]);
+    // Ruta rapida: waitUntil deja terminar el registro DESPUES de responder, asi que
+    // la redireccion no espera a Supabase. A cambio, la cabecera no puede decir el
+    // resultado (todavia no existe): dice 'en-segundo-plano'. Para comprobar que de
+    // verdad se registro, se mira la fila en clics_anuncio, no la cabecera.
+    // Si el runtime no ofrece waitUntil, se espera con tope y si se reporta el resultado.
+    const enSegundoPlano = waitUntilDisponible();
+    if (enSegundoPlano) {
+      enSegundoPlano(registro);
+      estadoRegistro = 'en-segundo-plano';
+    } else {
+      estadoRegistro = await Promise.race([
+        registro,
+        new Promise((r) => setTimeout(() => r('timeout'), ESPERA_MAXIMA_MS)),
+      ]);
+    }
   }
 
   res.setHeader('x-clic', estadoRegistro);

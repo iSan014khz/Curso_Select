@@ -1,629 +1,715 @@
 <!DOCTYPE html>
 
-<html class="scroll-smooth" lang="es">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
     <title>Asesorías Select BUAP 2027 | Tu Futuro Universitario</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="CSS/main.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@200..800&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "on-secondary": "#ffffff",
-                        "on-tertiary-container": "#7fa500",
-                        "outline-variant": "#c6c5d4",
-                        "surface-container-low": "#f5f2fb",
-                        "error": "#ba1a1a",
-                        "on-primary-container": "#8390f2",
-                        "surface-container-highest": "#e4e1ea",
-                        "secondary-fixed": "#ffdbcf",
-                        "on-background": "#1b1b21",
-                        "primary-fixed": "#dfe0ff",
-                        "inverse-primary": "#bcc2ff",
-                        "on-primary-fixed-variant": "#303c9a",
-                        "primary-fixed-dim": "#bcc2ff",
-                        "surface-container": "#efecf5",
-                        "surface-tint": "#4955b3",
-                        "on-secondary-fixed-variant": "#822800",
-                        "on-error-container": "#93000a",
-                        "inverse-on-surface": "#f2eff8",
-                        "surface-variant": "#e4e1ea",
-                        "on-primary": "#ffffff",
-                        "secondary": "#a43c12",
-                        "on-secondary-fixed": "#380c00",
-                        "on-surface-variant": "#454652",
-                        "secondary-container": "#fe7e4f",
-                        "on-tertiary-fixed-variant": "#3a4d00",
-                        "surface-container-lowest": "#ffffff",
-                        "on-secondary-container": "#6b1f00",
-                        "error-container": "#ffdad6",
-                        "on-primary-fixed": "#000c62",
-                        "surface-container-high": "#eae7ef",
-                        "on-error": "#ffffff",
-                        "on-surface": "#1b1b21",
-                        "background": "#fbf8ff",
-                        "surface-bright": "#fbf8ff",
-                        "on-tertiary-fixed": "#151f00",
-                        "surface": "#fbf8ff",
-                        "inverse-surface": "#303036",
-                        "tertiary-fixed": "#bef500",
-                        "tertiary-fixed-dim": "#a6d700",
-                        "outline": "#767683",
-                        "secondary-fixed-dim": "#ffb59c",
-                        "tertiary": "#151f00",
-                        "on-tertiary": "#ffffff",
-                        "primary": "#000b60",
-                        "tertiary-container": "#273500",
-                        "surface-dim": "#dbd9e1",
-                        "primary-container": "#142283",
-                        "tint-peach": "#ffe8d4",
-                        "tint-rose": "#fde0ec",
-                        "tint-mint": "#d9f3e1",
-                        "tint-lavender": "#e6e0f5",
-                        "tint-sky": "#dcecfa",
-                        "tint-yellow": "#fef7d6",
-                        "charcoal": "#37352f"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "fontFamily": {
-                        "headline": ["Newsreader"],
-                        "body": ["Plus Jakarta Sans"],
-                        "label": ["Plus Jakarta Sans"]
-                    }
-                },
-            },
-        }
+    <meta name="description"
+        content="10 asesoras expertas, 4 áreas del examen, modalidad virtual y presencial. Asegura tu lugar en la BUAP 2027 con Asesorías Select." />
+    <!-- Color de la barra del navegador en el celular: el mismo azul marino del encabezado -->
+    <meta name="theme-color" content="#0a1530" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%235645d4'/%3E%3Cpath d='M16 7 29 13 16 19 3 13z' fill='%23fff'/%3E%3Cpath d='M8 17v4.5c0 1.8 3.6 3.5 8 3.5s8-1.7 8-3.5V17l-8 3.7z' fill='%23fff'/%3E%3C/svg%3E" />
+
+    <script>
+        // Marca que hay JavaScript: habilita el menú móvil, el botón de compartir y el encabezado fijo.
+        document.documentElement.classList.add('js');
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="CSS/main.css">
 </head>
 
-<body
-    class="bg-background text-on-background font-sans selection:bg-tertiary-fixed selection:text-on-tertiary-fixed overflow-x-hidden">
-    <nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,11,96,0.06)]">
-        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Iconos (sprite en línea: sin fuente de iconos ni peticiones extra) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-school" viewBox="0 0 24 24">
+                <path
+                    d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                <path d="M22 10v6" />
+                <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+            </symbol>
+            <symbol id="i-flask" viewBox="0 0 24 24">
+                <path
+                    d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" />
+                <path d="M8.5 2h7" />
+                <path d="M7 16h10" />
+            </symbol>
+            <symbol id="i-ruler" viewBox="0 0 24 24">
+                <path
+                    d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" />
+                <path d="m14.5 12.5 2-2" />
+                <path d="m11.5 9.5 2-2" />
+                <path d="m8.5 6.5 2-2" />
+                <path d="m17.5 15.5 2-2" />
+            </symbol>
+            <symbol id="i-globe" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                <path d="M2 12h20" />
+            </symbol>
+            <symbol id="i-banknote" viewBox="0 0 24 24">
+                <rect width="20" height="12" x="2" y="6" rx="2" />
+                <circle cx="12" cy="12" r="2" />
+                <path d="M6 12h.01M18 12h.01" />
+            </symbol>
+            <symbol id="i-monitor" viewBox="0 0 24 24">
+                <rect width="20" height="14" x="2" y="3" rx="2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+            </symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+            </symbol>
+            <symbol id="i-messages" viewBox="0 0 24 24">
+                <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z" />
+                <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+            </symbol>
+            <symbol id="i-calendar-check" viewBox="0 0 24 24">
+                <path d="M8 2v4" />
+                <path d="M16 2v4" />
+                <rect width="18" height="18" x="3" y="4" rx="2" />
+                <path d="M3 10h18" />
+                <path d="m9 16 2 2 4-4" />
+            </symbol>
+            <symbol id="i-map-pin" viewBox="0 0 24 24">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+            </symbol>
+            <symbol id="i-circle-check" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m9 12 2 2 4-4" />
+            </symbol>
+            <symbol id="i-tag" viewBox="0 0 24 24">
+                <path
+                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+                <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+            </symbol>
+            <symbol id="i-badge-check" viewBox="0 0 24 24">
+                <path
+                    d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                <path d="m9 12 2 2 4-4" />
+            </symbol>
+            <symbol id="i-rocket" viewBox="0 0 24 24">
+                <path
+                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                <path
+                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+            </symbol>
+            <symbol id="i-list-checks" viewBox="0 0 24 24">
+                <path d="m3 17 2 2 4-4" />
+                <path d="m3 7 2 2 4-4" />
+                <path d="M13 6h8" />
+                <path d="M13 12h8" />
+                <path d="M13 18h8" />
+            </symbol>
+            <symbol id="i-trophy" viewBox="0 0 24 24">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+            </symbol>
+            <symbol id="i-zap" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </symbol>
+            <symbol id="i-timer" viewBox="0 0 24 24">
+                <path d="M10 2h4" />
+                <path d="m12 14 3-3" />
+                <circle cx="12" cy="14" r="8" />
+            </symbol>
+            <symbol id="i-shield-check" viewBox="0 0 24 24">
+                <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                <path d="m9 12 2 2 4-4" />
+            </symbol>
+            <symbol id="i-file-text" viewBox="0 0 24 24">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+                <path d="M10 9H8" />
+                <path d="M16 13H8" />
+                <path d="M16 17H8" />
+            </symbol>
+            <symbol id="i-share" viewBox="0 0 24 24">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                <path d="m16 6-4-4-4 4" />
+                <path d="M12 2v13" />
+            </symbol>
+            <symbol id="i-x" viewBox="0 0 24 24">
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+            </symbol>
+            <symbol id="i-link" viewBox="0 0 24 24">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+            </symbol>
+            <symbol id="i-message-circle" viewBox="0 0 24 24">
+                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+            </symbol>
+            <symbol id="i-phone" viewBox="0 0 24 24">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </symbol>
+            <symbol id="i-users" viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </symbol>
+            <symbol id="i-check" viewBox="0 0 24 24">
+                <path d="M20 6 9 17l-5-5" />
+            </symbol>
+        </defs>
+    </svg>
+
+    <header class="site-header">
+        <div class="site-header__bar container">
 
             <!-- Logo -->
-            <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary text-3xl">school</span>
-                <span class="text-2xl font-serif italic text-indigo-900 leading-none">Asesorías Select</span>
-            </div>
+            <a class="brand" href="#inicio" aria-label="Asesorías Select, inicio">
+                <svg class="icon" aria-hidden="true">
+                    <use href="#i-school" />
+                </svg>
+                <span>Asesorías Select</span>
+            </a>
 
             <!-- Links desktop (se ocultan en mobile) -->
-            <div class="hidden md:flex gap-8 items-center">
-                <a class="text-indigo-800 font-medium hover:scale-105 transition-transform duration-200"
-                    href="#modalidad">Modalidad</a>
-                <a class="text-indigo-800 font-medium hover:scale-105 transition-transform duration-200"
-                    href="#precio">Inversión</a>
+            <nav class="nav" aria-label="Principal">
+                <ul class="nav__list">
+                    <li><a class="nav__link" href="#curso">Sobre el curso</a></li>
+                    <li><a class="nav__link" href="#modalidad">Modalidad</a></li>
+                    <li><a class="nav__link" href="#precio">Inversión</a></li>
+                </ul>
                 <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
-                    target="_blank" rel="noopener noreferrer"
-                    class="bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all">
+                    target="_blank" rel="noopener noreferrer" class="btn btn--primary nav__cta">
+                    <svg class="icon icon--sm" aria-hidden="true">
+                        <use href="#i-message-circle" />
+                    </svg>
                     Enviar WhatsApp
                 </a>
-            </div>
+            </nav>
 
-            <!-- Burger (solo mobile) -->
-            <button id="burger" onclick="toggleMenu()" aria-label="Menú" aria-expanded="false"
-                class="md:hidden flex flex-col justify-center items-center gap-[5px] w-9 h-9 rounded-lg p-1 hover:bg-primary/5 transition-colors">
-                <span id="b1"
-                    class="block w-5 h-[1.5px] bg-primary rounded-full origin-center transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.23,1,0.32,1)]"></span>
-                <span id="b2"
-                    class="block w-5 h-[1.5px] bg-primary rounded-full origin-center transition-[transform,opacity,width] duration-[350ms] ease-[cubic-bezier(0.23,1,0.32,1)]"></span>
-                <span id="b3"
-                    class="block w-5 h-[1.5px] bg-primary rounded-full origin-center transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.23,1,0.32,1)]"></span>
+            <!-- Burger (solo mobile y solo con JavaScript) -->
+            <button class="burger" id="burger" type="button" aria-label="Menú" aria-expanded="false"
+                aria-controls="mobileMenu">
+                <span class="burger__bar"></span>
+                <span class="burger__bar"></span>
+                <span class="burger__bar"></span>
             </button>
 
         </div>
-    </nav>
 
-    <!-- Fuera del nav -->
-    <div id="overlay" onclick="toggleMenu()"
-        class="fixed inset-0 bg-primary/20 backdrop-blur-sm z-40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
-    </div>
-
-    <div id="mobileMenu"
-        class="fixed top-0 left-0 right-0 bg-white/97 backdrop-blur-xl px-6 pt-20 pb-8 z-40 shadow-lg -translate-y-full transition-transform duration-[400ms] ease-[cubic-bezier(0.23,1,0.32,1)] md:hidden">
-        <a href="#modalidad" onclick="toggleMenu()" class="menu-link">Modalidad</a>
-        <a href="#precio" onclick="toggleMenu()" class="menu-link">Inversión</a>
-        <a href="#" onclick="toggleMenu()" class="menu-link">Sobre el curso</a>
-        <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
-            target="_blank" rel="noopener noreferrer"
-            class="mt-5 block w-full text-center bg-green-500 text-white px-6 py-4 rounded-full font-bold text-base hover:bg-green-600 active:scale-95 transition-all">
-            Enviar WhatsApp
-        </a>
-    </div>
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-20 md:pb-0 overflow-hidden bg-primary">
-
-        <img alt="Estudiantes felices BUAP"
-            class="absolute inset-0 w-full h-full object-cover z-0 opacity-40 md:opacity-50 md:object-[center_30%]"
-            src="IMGS/Hero.jpeg" />
-
-        <div
-            class="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent md:hidden z-10 pointer-events-none">
-        </div>
-        <div
-            class="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-transparent hidden md:block z-10 pointer-events-none">
-        </div>
-
-        <div
-            class="absolute top-[-10%] right-[-10%] w-[350px] md:w-[500px] h-[350px] md:h-[500px] bg-tertiary-fixed/20 blur-[90px] md:blur-[120px] rounded-full z-10 pointer-events-none">
-        </div>
-        <div
-            class="absolute bottom-[-10%] left-[-10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-secondary-container/20 blur-[80px] md:blur-[100px] rounded-full z-10 pointer-events-none">
-        </div>
-
-        <div class="container mx-auto px-6 relative z-20 grid grid-cols-1 md:grid-cols-[2fr,1fr] gap-12 items-center">
-
-            <div class="space-y-6 md:space-y-8 text-center md:text-left mt-10 md:mt-0">
-                <div class="inline-block">
-                    <span
-                        class="text-tertiary-fixed font-bold tracking-widest uppercase text-xs md:text-sm block mb-2 px-1">Admisión
-                        BUAP 2027</span>
-                    <h1 class="text-5xl sm:text-6xl md:text-7xl font-serif italic text-white leading-[1.1]">Asegura tu
-                        lugar en la BUAP 2027</h1>
-                </div>
-                <p class="text-lg md:text-xl text-primary-fixed leading-relaxed max-w-lg mx-auto md:mx-0">
-                    10 asesoras expertas, 4 áreas del examen, un solo pago de <span
-                        class="text-tertiary-fixed font-bold">$450 MXN</span>. El camino a la universidad comienza aquí.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start items-center">
-                    <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
-                        target="_blank" rel="noopener noreferrer"
-                        class="inline-flex w-full sm:w-auto items-center justify-center bg-secondary-container text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 active:scale-95 transition-all duration-300 no-underline shadow-xl shadow-secondary-container/30 transform">
-                        ¡Inscribirme Hoy!
-                    </a>
-                </div>
-            </div>
-
-            <div class="hidden md:block"></div>
-
-        </div>
-    </header>
-    <!-- Sobre el Curso -->
-    <section class="py-24 tonal-shift-bg">
-        <div class="container mx-auto px-6">
-            <div class="mb-16">
-                <span class="text-secondary font-bold tracking-widest uppercase text-xs">Excelencia Académica</span>
-                <h2 class="text-4xl md:text-5xl font-serif italic text-primary mt-2">Expertas en tu formación</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-primary/5 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">biotech</span>
-                    </div>
-                    <h3 class="text-xl font-serif text-primary mb-3">Naturales</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">Biología, Química y Salud con
-                        instructoras capacitadas directamente por la BUAP.</p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-secondary/5 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-secondary text-3xl">architecture</span>
-                    </div>
-                    <h3 class="text-xl font-serif text-primary mb-3">Ingeniería</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">Física y Matemáticas avanzadas con un
-                        enfoque práctico y dinámico.</p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-tertiary-fixed/10 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-on-tertiary-fixed-variant text-3xl">public</span>
-                    </div>
-                    <h3 class="text-xl font-serif text-primary mb-3">Sociales</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">Historia, formación cívica y ética para
-                        un puntaje perfecto en humanidades.</p>
-                </div>
-                <div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-14 h-14 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">payments</span>
-                    </div>
-                    <h3 class="text-xl font-serif text-primary mb-3">Económicas</h3>
-                    <p class="text-on-surface-variant text-sm leading-relaxed">Administración y contabilidad
-                        simplificada para futuros financieros.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Modalidad Virtual vs Presencial -->
-    <section class="py-24 bg-surface" id="modalidad">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-4xl md:text-6xl font-serif italic text-primary">Elige tu propia ruta de aprendizaje</h2>
-                <p class="text-on-surface-variant mt-6">Flexibilidad total para que estudies a tu ritmo, sin sacrificar
-                    resultados.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 items-stretch">
-                <!-- Virtual -->
-                <div class="relative group">
-                    <div
-                        class="absolute inset-0 bg-primary/5 rounded-3xl -rotate-1 group-hover:rotate-0 transition-transform">
-                    </div>
-                    <div
-                        class="relative bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-outline-variant/10 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-8">
-                            <div>
-                                <span
-                                    class="bg-primary text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">En
-                                    Vivo</span>
-                                <h3 class="text-3xl font-serif text-primary mt-4 italic">Modalidad Virtual</h3>
-                            </div>
-                            <span class="material-symbols-outlined text-primary text-4xl">devices</span>
-                        </div>
-                        <ul class="space-y-6 flex-grow">
-                            <li class="flex gap-4">
-                                <span class="material-symbols-outlined text-tertiary-fixed-dim shrink-0"
-                                    data-weight="fill">schedule</span>
-                                <div>
-                                    <p class="font-bold text-primary">Lunes a Domingo 7pm - 11pm</p>
-                                    <p class="text-sm text-on-surface-variant">4 clases simultáneas vía Zoom.</p>
-                                </div>
-                            </li>
-                            <li class="flex gap-4">
-                                <span class="material-symbols-outlined text-tertiary-fixed-dim shrink-0"
-                                    data-weight="fill">forum</span>
-                                <div>
-                                    <p class="font-bold text-primary">Grupos Premium</p>
-                                    <p class="text-sm text-on-surface-variant">Acceso a WhatsApp/Facebook con 100+
-                                        simulaciones.</p>
-                                </div>
-                            </li>
-                            <li class="flex gap-4">
-                                <span class="material-symbols-outlined text-tertiary-fixed-dim shrink-0"
-                                    data-weight="fill">event_available</span>
-                                <div>
-                                    <p class="font-bold text-primary">Hasta el final</p>
-                                    <p class="text-sm text-on-surface-variant">El curso termina el 19 de Junio de 2027.
-                                    </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Presencial -->
-                <div class="relative group">
-                    <div
-                        class="absolute inset-0 bg-secondary/5 rounded-3xl rotate-1 group-hover:rotate-0 transition-transform">
-                    </div>
-                    <div
-                        class="relative bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-outline-variant/10 h-full flex flex-col">
-                        <div class="flex justify-between items-start mb-8">
-                            <div>
-                                <span
-                                    class="bg-secondary text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">Cara
-                                    a Cara</span>
-                                <h3 class="text-3xl font-serif text-primary mt-4 italic">Modalidad Presencial</h3>
-                            </div>
-                            <span class="material-symbols-outlined text-secondary text-4xl">location_on</span>
-                        </div>
-                        <div class="space-y-6 flex-grow">
-                            <div class="grid grid-cols-2 gap-4 mb-4">
-                                <div class="bg-surface-container p-4 rounded-xl">
-                                    <p class="font-bold text-primary">Puebla</p>
-                                    <p class="text-xs text-on-surface-variant">Sábados intensivos</p>
-                                </div>
-                                <div class="bg-surface-container p-4 rounded-xl">
-                                    <p class="font-bold text-primary">Tehuacán</p>
-                                    <p class="text-xs text-on-surface-variant">Domingos de enfoque</p>
-                                </div>
-                            </div>
-                            <ul class="space-y-4">
-                                <li class="flex gap-4 items-center">
-                                    <span class="material-symbols-outlined text-secondary shrink-0">check_circle</span>
-                                    <p class="text-on-surface-variant">Pensamiento Matemático &amp; Comprensión Lectora
-                                    </p>
-                                </li>
-                                <li class="flex gap-4 items-center">
-                                    <span class="material-symbols-outlined text-secondary shrink-0">check_circle</span>
-                                    <p class="text-on-surface-variant">Habilidades Blandas &amp; Orientación</p>
-                                </li>
-                                <li class="flex gap-4 items-center">
-                                    <span class="material-symbols-outlined text-secondary shrink-0">sell</span>
-                                    <p class="text-sm font-bold text-secondary italic">Cuota mínima de $10 MXN para
-                                        salón y materiales.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Precio Section -->
-    <section class="py-24 tonal-shift-bg overflow-hidden" id="precio">
-        <div class="container mx-auto px-6 text-center">
-            <div class="max-w-4xl mx-auto bg-primary rounded-[3rem] p-12 md:p-24 relative overflow-hidden shadow-2xl">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary-fixed/10 blur-[80px] -mr-32 -mt-32"></div>
-                <span class="text-tertiary-fixed font-bold tracking-widest uppercase text-sm block mb-4">Inversión
-                    Única</span>
-                <h2 class="text-4xl md:text-7xl font-serif italic text-white mb-8"><b>Un solo pago </b> para ambas
-                    modalidades</h2>
-                <div class="flex flex-col items-center justify-center gap-2 mb-10">
-                    <span class="text-7xl md:text-9xl font-bold text-tertiary-fixed leading-none">$450</span>
-                    <span class="text-2xl text-primary-fixed uppercase tracking-tighter font-bold">Pesos</span>
-                </div>
-                <p class="text-primary-fixed text-lg mb-12 max-w-xl mx-auto">
-                    Sin mensualidades ni costos ocultos. Acceso total a las plataformas, clases en vivo y materiales
-                    físicos/digitales.
-                </p>
+        <!-- Menú móvil: sin JS queda visible bajo la barra; con JS sale de detrás de ella -->
+        <nav class="menu" id="mobileMenu" aria-label="Principal">
+            <a href="#curso" class="menu__link" style="--i:0">Sobre el curso</a>
+            <a href="#modalidad" class="menu__link" style="--i:1">Modalidad</a>
+            <a href="#precio" class="menu__link" style="--i:2">Inversión</a>
+            <div class="menu__cta" style="--i:3">
                 <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
-                    target="_blank" rel="noopener noreferrer"
-                    class="inline-block bg-tertiary-fixed text-on-tertiary-fixed px-12 py-5 rounded-full font-extrabold text-xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-tertiary-fixed/20 no-underline">
+                    target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--block">
+                    <svg class="icon icon--sm" aria-hidden="true">
+                        <use href="#i-message-circle" />
+                    </svg>
                     Enviar WhatsApp
                 </a>
             </div>
-        </div>
-    </section>
-    <!-- Beneficios Bento Grid -->
-    <section class="py-24 bg-surface">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="md:col-span-2 bg-surface-container-low rounded-3xl p-10 flex flex-col justify-between">
+        </nav>
+    </header>
+
+    <!-- Fuera del encabezado -->
+    <div class="scrim" id="overlay"></div>
+
+    <main id="contenido">
+
+        <!-- Hero Section -->
+        <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+            <div class="container">
+                <div class="hero__grid">
+
                     <div>
-                        <span class="text-primary font-bold text-sm uppercase tracking-widest">Lo que obtienes</span>
-                        <h3 class="text-3xl font-serif italic text-primary mt-4">Acompañamiento Personalizado</h3>
-                        <div class="grid sm:grid-cols-2 gap-6 mt-10">
-                            <div class="flex gap-4">
-                                <span class="material-symbols-outlined text-secondary"
-                                    data-weight="fill">verified</span>
-                                <p class="text-on-surface-variant">Clases virtuales diarias y grabadas para repaso
-                                    infinito.</p>
+                        <span class="hero__eyebrow">Admisión BUAP 2027</span>
+                        <h1 class="hero__title" id="hero-titulo">Asegura tu lugar en la BUAP 2027</h1>
+                        <p class="hero__lead">
+                            10 asesoras expertas, 4 áreas del examen, un solo pago de <strong>$450 MXN</strong>. El
+                            camino a la universidad comienza aquí.
+                        </p>
+                        <div class="hero__actions">
+                            <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                                target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+                                <svg class="icon icon--sm" aria-hidden="true">
+                                    <use href="#i-message-circle" />
+                                </svg>
+                                ¡Inscribirme Hoy!
+                            </a>
+                            <a href="#modalidad" class="btn btn--secondary-on-dark btn--lg">Ver modalidades</a>
+                        </div>
+                    </div>
+
+                    <figure class="hero__media">
+                        <picture>
+                            <source type="image/webp"
+                                srcset="IMGS/Hero-800.webp 800w, IMGS/Hero-1280.webp 1280w"
+                                sizes="(min-width: 1024px) 560px, (min-width: 768px) 720px, calc(100vw - 40px)" />
+                            <img alt="Estudiantes felices BUAP" src="IMGS/Hero.jpeg" width="1280" height="960"
+                                decoding="async" />
+                        </picture>
+                    </figure>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre el Curso -->
+        <section class="section" id="curso" aria-labelledby="curso-titulo">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Excelencia Académica</p>
+                    <h2 class="section-title" id="curso-titulo">Expertas en tu formación</h2>
+                </div>
+                <div class="cards cards--areas">
+                    <article class="card tint-mint">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-flask" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Naturales</h3>
+                        <p class="card__text">Biología, Química y Salud con instructoras capacitadas directamente por
+                            la BUAP.</p>
+                    </article>
+                    <article class="card tint-sky">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-ruler" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Ingeniería</h3>
+                        <p class="card__text">Física y Matemáticas avanzadas con un enfoque práctico y dinámico.</p>
+                    </article>
+                    <article class="card tint-peach">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-globe" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Sociales</h3>
+                        <p class="card__text">Historia, formación cívica y ética para un puntaje perfecto en
+                            humanidades.</p>
+                    </article>
+                    <article class="card tint-yellow">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-banknote" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Económicas</h3>
+                        <p class="card__text">Administración y contabilidad simplificada para futuros financieros.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modalidad Virtual vs Presencial -->
+        <section class="section section--surface" id="modalidad" aria-labelledby="modalidad-titulo">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title" id="modalidad-titulo">Elige tu propia ruta de aprendizaje</h2>
+                    <p class="section-lead">Flexibilidad total para que estudies a tu ritmo, sin sacrificar
+                        resultados.</p>
+                </div>
+                <div class="modes">
+                    <!-- Virtual -->
+                    <article class="mode">
+                        <div class="mode__top">
+                            <span class="tag tag--purple">En Vivo</span>
+                            <span class="mode__icon mode__icon--purple">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-monitor" />
+                                </svg>
+                            </span>
+                        </div>
+                        <h3 class="mode__title">Modalidad Virtual</h3>
+                        <ul class="facts">
+                            <li class="fact">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-clock" />
+                                </svg>
+                                <div>
+                                    <p class="fact__title">Lunes a Domingo 7pm - 11pm</p>
+                                    <p class="fact__text">4 clases simultáneas vía Zoom.</p>
+                                </div>
+                            </li>
+                            <li class="fact">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-messages" />
+                                </svg>
+                                <div>
+                                    <p class="fact__title">Grupos Premium</p>
+                                    <p class="fact__text">Acceso a WhatsApp/Facebook con 100+ simulaciones.</p>
+                                </div>
+                            </li>
+                            <li class="fact">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-calendar-check" />
+                                </svg>
+                                <div>
+                                    <p class="fact__title">Hasta el final</p>
+                                    <p class="fact__text">El curso termina el 19 de Junio de 2027.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </article>
+                    <!-- Presencial -->
+                    <article class="mode">
+                        <div class="mode__top">
+                            <span class="tag tag--orange">Cara a Cara</span>
+                            <span class="mode__icon mode__icon--orange">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-map-pin" />
+                                </svg>
+                            </span>
+                        </div>
+                        <h3 class="mode__title">Modalidad Presencial</h3>
+                        <div class="places">
+                            <div class="place">
+                                <p class="place__name">Puebla</p>
+                                <p class="place__when">Sábados intensivos</p>
                             </div>
-                            <div class="flex gap-4">
-                                <span class="material-symbols-outlined text-secondary"
-                                    data-weight="fill">verified</span>
-                                <p class="text-on-surface-variant">Biblioteca masiva de materiales y guías interactivas.
-                                </p>
+                            <div class="place">
+                                <p class="place__name">Tehuacán</p>
+                                <p class="place__when">Domingos de enfoque</p>
                             </div>
-                            <div class="flex gap-4">
-                                <span class="material-symbols-outlined text-secondary"
-                                    data-weight="fill">verified</span>
-                                <p class="text-on-surface-variant">Asesoría experta en cada paso del proceso de
-                                    admisión.</p>
-                            </div>
-                            <div class="flex gap-4">
-                                <span class="material-symbols-outlined text-secondary"
-                                    data-weight="fill">verified</span>
-                                <p class="text-on-surface-variant">Simulacros reales bajo presión de tiempo.</p>
-                            </div>
+                        </div>
+                        <ul class="facts">
+                            <li class="fact fact--check">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-circle-check" />
+                                </svg>
+                                <p>Pensamiento Matemático &amp; Comprensión Lectora</p>
+                            </li>
+                            <li class="fact fact--check">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-circle-check" />
+                                </svg>
+                                <p>Habilidades Blandas &amp; Orientación</p>
+                            </li>
+                        </ul>
+                        <p class="note">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-tag" />
+                            </svg>
+                            <span>Cuota mínima de $10 MXN para salón y materiales.</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Precio Section -->
+        <section class="section" id="precio" aria-labelledby="precio-titulo">
+            <div class="container">
+                <div class="price-card">
+                    <span class="badge">Inversión Única</span>
+                    <h2 class="price-card__title" id="precio-titulo"><b>Un solo pago </b> para ambas modalidades</h2>
+                    <p class="price-card__amount">
+                        <span class="price-card__figure">$450</span>
+                        <span class="price-card__currency">Pesos</span>
+                    </p>
+                    <p class="price-card__text">
+                        Sin mensualidades ni costos ocultos. Acceso total a las plataformas, clases en vivo y
+                        materiales físicos/digitales.
+                    </p>
+                    <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                        target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+                        <svg class="icon icon--sm" aria-hidden="true">
+                            <use href="#i-message-circle" />
+                        </svg>
+                        Enviar WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios Bento Grid -->
+        <section class="section section--surface" id="beneficios" aria-labelledby="beneficios-titulo">
+            <div class="container">
+                <div class="bento">
+                    <div class="card tint-lavender">
+                        <p class="eyebrow">Lo que obtienes</p>
+                        <h2 class="bento__title" id="beneficios-titulo">Acompañamiento Personalizado</h2>
+                        <ul class="checklist">
+                            <li class="check">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-badge-check" />
+                                </svg>
+                                <p>Clases virtuales diarias y grabadas para repaso infinito.</p>
+                            </li>
+                            <li class="check">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-badge-check" />
+                                </svg>
+                                <p>Biblioteca masiva de materiales y guías interactivas.</p>
+                            </li>
+                            <li class="check">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-badge-check" />
+                                </svg>
+                                <p>Asesoría experta en cada paso del proceso de admisión.</p>
+                            </li>
+                            <li class="check">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-badge-check" />
+                                </svg>
+                                <p>Simulacros reales bajo presión de tiempo.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card tint-yellow-bold bento__accent">
+                        <div>
+                            <span class="card__icon">
+                                <svg class="icon" aria-hidden="true">
+                                    <use href="#i-rocket" />
+                                </svg>
+                            </span>
+                            <p class="bento__quote">Tu meta es entrar a la BUAP, nuestra meta es llevarte ahí.</p>
+                        </div>
+                        <div>
+                            <p class="bento__stat">100%</p>
+                            <p class="bento__stat-label">Compromiso con tu ingreso</p>
                         </div>
                     </div>
                 </div>
-                <div
-                    class="bg-secondary-container rounded-3xl p-10 text-on-secondary-container relative overflow-hidden flex flex-col justify-between">
-                    <span
-                        class="material-symbols-outlined text-8xl absolute -right-4 -bottom-4 opacity-20">rocket_launch</span>
-                    <h3 class="text-3xl font-serif italic leading-tight">Tu meta es entrar a la BUAP, nuestra meta es
-                        llevarte ahí.</h3>
-                    <div class="mt-8">
-                        <p class="text-4xl font-bold">100%</p>
-                        <p class="text-sm opacity-80">Compromiso con tu ingreso</p>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Plataforma de estudio (solo informativa: sin enlaces a la plataforma) -->
+        <section class="section" id="plataforma" aria-labelledby="plataforma-titulo">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Plataforma de estudio</p>
+                    <h2 class="section-title" id="plataforma-titulo">Practica, compite y simula el examen</h2>
+                    <p class="section-lead">Además de las clases en vivo, tendrás una plataforma para practicar por tu
+                        cuenta con preguntas tipo EXANI II. Tu acceso se activa cuando se confirma tu pago.</p>
+                </div>
+                <div class="cards cards--platform">
+                    <article class="card tint-sky">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-list-checks" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Práctica por temas</h3>
+                        <p class="card__text">Elige el tema que quieres reforzar y recibe retroalimentación de cada
+                            reactivo.</p>
+                    </article>
+                    <article class="card tint-yellow">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-trophy" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Liga competitiva</h3>
+                        <p class="card__text">Lo que practicas cuenta para tu posición en la liga, así que estudiar
+                            tiene su recompensa.</p>
+                    </article>
+                    <article class="card tint-rose">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-zap" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Duelos entre alumnos</h3>
+                        <p class="card__text">Rétalos a un duelo: en vivo si tu rival está conectado, o con 24 horas
+                            para responder si no.</p>
+                    </article>
+                    <article class="card tint-peach">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-timer" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Simulacros cronometrados</h3>
+                        <p class="card__text">Practica contra el reloj para que la presión del tiempo no te sorprenda
+                            el día del examen.</p>
+                    </article>
+                    <article class="card tint-mint">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-shield-check" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Reactivos verificados</h3>
+                        <p class="card__text">Cada pregunta se revisa antes de entrar al banco: formato, cálculo y
+                            una resolución a ciegas.</p>
+                    </article>
+                    <article class="card tint-lavender">
+                        <span class="card__icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use href="#i-file-text" />
+                            </svg>
+                        </span>
+                        <h3 class="card__title">Guías y exámenes en PDF</h3>
+                        <p class="card__text">100 guías EXANI y 50 exámenes de práctica para repasar a tu ritmo.</p>
+                    </article>
+                </div>
+                <div class="cta-row">
+                    <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                        target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
+                        <svg class="icon icon--sm" aria-hidden="true">
+                            <use href="#i-message-circle" />
+                        </svg>
+                        Inscribirme por WhatsApp
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Plataforma de estudio (solo informativa: sin enlaces a la plataforma) -->
-    <section class="py-24 tonal-shift-bg" id="plataforma" aria-labelledby="plataforma-titulo">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mb-16">
-                <span class="text-secondary font-bold tracking-widest uppercase text-xs">Plataforma de estudio</span>
-                <h2 id="plataforma-titulo" class="text-4xl md:text-5xl font-serif italic text-primary mt-2">Practica,
-                    compite y simula el examen</h2>
-                <p class="text-on-surface-variant text-base leading-relaxed mt-6">Además de las clases en vivo,
-                    tendrás una plataforma para practicar por tu cuenta con preguntas tipo EXANI II. Tu acceso se
-                    activa cuando se confirma tu pago.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article class="bg-tint-sky text-charcoal p-8 rounded-xl">
-                    <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">checklist</span>
-                    </div>
-                    <h3 class="text-[22px] leading-[1.3] font-serif text-primary mb-3">Práctica por temas</h3>
-                    <p class="text-sm leading-normal">Elige el tema que quieres reforzar y recibe retroalimentación de
-                        cada reactivo.</p>
-                </article>
-                <article class="bg-tint-yellow text-charcoal p-8 rounded-xl">
-                    <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">emoji_events</span>
-                    </div>
-                    <h3 class="text-[22px] leading-[1.3] font-serif text-primary mb-3">Liga competitiva</h3>
-                    <p class="text-sm leading-normal">Lo que practicas cuenta para tu posición en la liga, así que
-                        estudiar tiene su recompensa.</p>
-                </article>
-                <article class="bg-tint-rose text-charcoal p-8 rounded-xl">
-                    <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
-                    </div>
-                    <h3 class="text-[22px] leading-[1.3] font-serif text-primary mb-3">Duelos entre alumnos</h3>
-                    <p class="text-sm leading-normal">Rétalos a un duelo: en vivo si tu rival está conectado, o con
-                        24 horas para responder si no.</p>
-                </article>
-                <article class="bg-tint-peach text-charcoal p-8 rounded-xl">
-                    <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">timer</span>
-                    </div>
-                    <h3 class="text-[22px] leading-[1.3] font-serif text-primary mb-3">Simulacros cronometrados</h3>
-                    <p class="text-sm leading-normal">Practica contra el reloj para que la presión del tiempo no te
-                        sorprenda el día del examen.</p>
-                </article>
-                <article class="bg-tint-mint text-charcoal p-8 rounded-xl">
-                    <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">verified</span>
-                    </div>
-                    <h3 class="text-[22px] leading-[1.3] font-serif text-primary mb-3">Reactivos verificados</h3>
-                    <p class="text-sm leading-normal">Cada pregunta se revisa antes de entrar al banco: formato,
-                        cálculo y una resolución a ciegas.</p>
-                </article>
-                <article class="bg-tint-lavender text-charcoal p-8 rounded-xl">
-                    <div class="w-14 h-14 rounded-2xl bg-white/60 flex items-center justify-center mb-6">
-                        <span class="material-symbols-outlined text-primary text-3xl">picture_as_pdf</span>
-                    </div>
-                    <h3 class="text-[22px] leading-[1.3] font-serif text-primary mb-3">Guías y exámenes en PDF</h3>
-                    <p class="text-sm leading-normal">100 guías EXANI y 50 exámenes de práctica para repasar a tu
-                        ritmo.</p>
-                </article>
-            </div>
-            <div class="mt-12 text-center md:text-left">
-                <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
-                    target="_blank" rel="noopener noreferrer"
-                    class="inline-block bg-secondary-container text-on-secondary-container px-6 py-3 rounded-lg text-base font-medium hover:scale-105 active:scale-95 transition-all no-underline">
-                    Inscribirme por WhatsApp
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
+
     <!-- Footer -->
-    <footer class="bg-indigo-950 pt-20 pb-12">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
-                <div class="max-w-sm">
-                    <div class="flex items-center gap-2 mb-6">
-                        <span class="material-symbols-outlined text-lime-400 text-3xl">school</span>
-                        <span class="text-2xl font-serif text-white">Asesorías Select</span>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <div class="brand">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-school" />
+                        </svg>
+                        <span>Asesorías Select</span>
                     </div>
-                    <p class="text-indigo-200/60 font-light leading-relaxed">
+                    <p>
                         Preparación integral de alto rendimiento para el examen de admisión BUAP 2027. Liderados por
                         expertos formados institucionalmente.
                     </p>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
-                    <div>
-                        <p class="text-white font-serif mb-6">Navegación</p>
-                        <ul class="space-y-4 text-indigo-200/60 text-sm">
-                            <li><a class="hover:text-white transition-colors" href="#">Inicio</a></li>
-                            <li><a class="hover:text-white transition-colors" href="#">Sobre el Curso</a></li>
-                            <li><a class="hover:text-white transition-colors" href="#">Testimonios</a></li>
+                <div class="footer__cols">
+                    <nav aria-labelledby="footer-nav">
+                        <h2 class="footer__heading" id="footer-nav">Navegación</h2>
+                        <ul class="footer__list">
+                            <li><a class="footer__link" href="#inicio">Inicio</a></li>
+                            <li><a class="footer__link" href="#curso">Sobre el Curso</a></li>
+                            <li><a class="footer__link" href="#">Testimonios</a></li>
                         </ul>
-                    </div>
+                    </nav>
                     <div>
-                    </div>
-                    <div>
-                        <p class="text-white font-serif mb-6">Contacto</p>
+                        <h2 class="footer__heading">Contacto</h2>
                         <!-- Fila de contacto -->
-                        <div class="flex flex-col gap-3">
+                        <ul class="footer__list">
 
                             <!-- Teléfono clickeable -->
-                            <a href="tel:+522212043005"
-                                class="flex items-center gap-3 text-indigo-200/70 hover:text-white transition-colors text-sm">
-                                <span class="material-symbols-outlined text-lime-400 text-lg">call</span>
-                                +52 221 204 3005
-                            </a>
+                            <li>
+                                <a href="tel:+522212043005" class="footer__link">
+                                    <svg class="icon icon--sm" aria-hidden="true">
+                                        <use href="#i-phone" />
+                                    </svg>
+                                    +52 221 204 3005
+                                </a>
+                            </li>
 
                             <!-- WhatsApp -->
-                            <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
-                                target="_blank" rel="noopener noreferrer"
-                                class="flex items-center gap-3 text-indigo-200/70 hover:text-white transition-colors text-sm">
-                                <span class="material-symbols-outlined text-lime-400 text-lg">chat</span>
-                                WhatsApp
-                            </a>
+                            <li>
+                                <a href="https://wa.me/522212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                                    target="_blank" rel="noopener noreferrer" class="footer__link">
+                                    <svg class="icon icon--sm" aria-hidden="true">
+                                        <use href="#i-message-circle" />
+                                    </svg>
+                                    WhatsApp
+                                </a>
+                            </li>
 
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-indigo-200/40 text-xs">© 2026 Asesorías Select. BUAP 2027 Preparación.</p>
-                <p class="text-lime-400 text-xs font-bold tracking-widest uppercase">Curso Select</p>
+            <div class="footer__bottom">
+                <p>© 2026 Asesorías Select. BUAP 2027 Preparación.</p>
+                <p class="footer__tag">Curso Select</p>
             </div>
         </div>
     </footer>
 
-    <button onclick="toggleShareModal()"
-        class="fixed bottom-6 right-6 z-40 bg-secondary-container text-on-secondary-container p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group border border-white/20">
-        <span class="material-symbols-outlined text-3xl">share</span>
+    <button type="button" class="fab" id="shareOpen" aria-label="Compartir">
+        <svg class="icon" aria-hidden="true">
+            <use href="#i-share" />
+        </svg>
     </button>
 
-    <div id="shareModal"
-        class="fixed inset-0 z-[100] flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+    <dialog id="shareModal" class="dialog" aria-labelledby="shareTitle">
+        <div class="dialog__card">
 
-        <div class="absolute inset-0 bg-primary/40 backdrop-blur-sm" onclick="toggleShareModal()"></div>
-
-        <div id="shareCard"
-            class="relative bg-surface rounded-[2rem] shadow-2xl w-[90%] max-w-md p-8 transform scale-95 transition-transform duration-300">
-
-            <button onclick="toggleShareModal()"
-                class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-surface-container hover:bg-error/10 hover:text-error transition-colors">
-                <span class="material-symbols-outlined text-sm">close</span>
+            <button type="button" class="dialog__close" data-share="close" aria-label="Cerrar">
+                <svg class="icon" aria-hidden="true">
+                    <use href="#i-x" />
+                </svg>
             </button>
 
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <span class="material-symbols-outlined text-primary text-3xl">diversity_3</span>
-                </div>
-                <h3 class="text-2xl font-serif italic text-primary font-bold leading-tight">¿Quieres
-                    compartir<br>nuestra página?</h3>
-                <p class="text-on-surface-variant text-sm mt-3">Envíala a tus papás o amigos para que conozcan tu plan
-                    de estudio hacia la BUAP.</p>
+            <div class="dialog__head">
+                <span class="card__icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use href="#i-users" />
+                    </svg>
+                </span>
+                <h2 class="dialog__title" id="shareTitle">¿Quieres compartir nuestra página?</h2>
+                <p class="dialog__text">Envíala a tus papás o amigos para que conozcan tu plan de estudio hacia la
+                    BUAP.</p>
             </div>
 
-            <div class="space-y-3">
-                <button onclick="shareWhatsApp()"
-                    class="w-full flex items-center justify-center gap-3 bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#20b958] active:scale-[0.98] transition-all shadow-md">
-                    <span class="material-symbols-outlined">chat</span>
+            <div class="dialog__actions">
+                <button type="button" data-share="whatsapp" class="btn btn--primary btn--lg btn--block">
+                    <svg class="icon icon--sm" aria-hidden="true">
+                        <use href="#i-message-circle" />
+                    </svg>
                     Enviar por WhatsApp
                 </button>
 
-                <button onclick="copyLink()"
-                    class="w-full flex items-center justify-center gap-3 bg-surface-container-high text-on-surface py-4 rounded-xl font-bold hover:bg-surface-variant active:scale-[0.98] transition-all">
-                    <span class="material-symbols-outlined">link</span>
-                    Copiar Enlace
+                <button type="button" data-share="copy" class="btn btn--secondary btn--lg btn--block">
+                    <svg class="icon icon--sm" aria-hidden="true">
+                        <use href="#i-link" />
+                    </svg>
+                    <span class="btn__label" data-copy-label>Copiar Enlace</span>
                 </button>
 
-                <button onclick="nativeShare()"
-                    class="w-full flex items-center justify-center gap-3 border-2 border-primary/10 text-primary py-4 rounded-xl font-bold hover:bg-primary/5 active:scale-[0.98] transition-all md:hidden">
-                    <span class="material-symbols-outlined">ios_share</span>
+                <button type="button" data-share="native" class="btn btn--secondary btn--lg btn--block dialog__native">
+                    <svg class="icon icon--sm" aria-hidden="true">
+                        <use href="#i-share" />
+                    </svg>
                     Más opciones
                 </button>
             </div>
 
+            <p class="sr-only" id="copyStatus" role="status" aria-live="polite"></p>
+
         </div>
-    </div>
+    </dialog>
     <script src="JS/main.js"></script>
     <script>// ==========================================
-        // LÓGICA PARA EL MODAL DE COMPARTIR
+        // LÓGICA PARA EL DIÁLOGO DE COMPARTIR
         // ==========================================
 
-        // 1. Función para abrir y cerrar el modal con animación
+        // 1. Función para abrir y cerrar el diálogo (<dialog> nativo: trae Escape, foco y fondo inerte)
         function toggleShareModal() {
             const modal = document.getElementById('shareModal');
-            const card = document.getElementById('shareCard');
+            // Navegadores sin <dialog>: en vez de un botón muerto, compartimos directo a WhatsApp
+            if (typeof modal.showModal !== 'function') return shareWhatsApp();
 
-            if (modal.classList.contains('hidden')) {
-                // Mostrar
-                modal.classList.remove('hidden');
-                // Un pequeño retraso para que la animación de CSS funcione
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    card.classList.remove('scale-95');
-                    card.classList.add('scale-100');
-                }, 10);
+            if (modal.open) {
+                modal.close();
             } else {
-                // Ocultar
-                modal.classList.add('opacity-0');
-                card.classList.remove('scale-100');
-                card.classList.add('scale-95');
-                // Esperar a que termine la animación para ocultar el div
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                }, 300);
+                modal.showModal();
             }
         }
 
@@ -639,12 +725,51 @@
         }
 
         // 3. Función para copiar el enlace al portapapeles
+        let temporizadorCopiado;
+
         function copyLink() {
             const url = window.location.href;
-            navigator.clipboard.writeText(url).then(() => {
-                // Cambiamos el texto temporalmente para confirmar
-                alert("¡Enlace copiado al portapapeles!");
-            });
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(confirmarCopiado, () => copiarConRespaldo(url));
+            } else {
+                copiarConRespaldo(url);
+            }
+        }
+
+        // Respaldo para contextos sin la API del portapapeles (http, navegadores viejos)
+        function copiarConRespaldo(url) {
+            const campo = document.createElement('textarea');
+            campo.value = url;
+            campo.setAttribute('readonly', '');
+            campo.style.position = 'fixed';
+            campo.style.opacity = '0';
+            document.body.appendChild(campo);
+            campo.select();
+            let copiado = false;
+            try { copiado = document.execCommand('copy'); } catch (e) { }
+            document.body.removeChild(campo);
+            if (copiado) confirmarCopiado();
+        }
+
+        // En lugar de un alert() que bloquea la página, el propio botón confirma y luego regresa a su texto
+        function confirmarCopiado() {
+            const etiqueta = document.querySelector('[data-copy-label]');
+            const aviso = document.getElementById('copyStatus');
+            if (!etiqueta.dataset.original) etiqueta.dataset.original = etiqueta.textContent;
+
+            aviso.textContent = "¡Enlace copiado al portapapeles!";
+            cambiarTexto(etiqueta, "¡Enlace copiado!");
+            clearTimeout(temporizadorCopiado);
+            temporizadorCopiado = setTimeout(() => cambiarTexto(etiqueta, etiqueta.dataset.original), 2000);
+        }
+
+        // Un desenfoque breve evita ver dos textos encimados a media transición
+        function cambiarTexto(elemento, texto) {
+            elemento.classList.add('is-swapping');
+            setTimeout(() => {
+                elemento.textContent = texto;
+                elemento.classList.remove('is-swapping');
+            }, 100);
         }
 
         // 4. Función Nativa (Abre el menú de compartir de iOS o Android)

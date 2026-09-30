@@ -427,7 +427,27 @@ components:
 
 ## Notas de aplicación en este repo
 
-Este sistema es de referencia. `index.html` ya tiene su propio lenguaje visual (serif itálica,
-paleta propia). Al agregar secciones nuevas, usa estos tokens **sin romper la coherencia de la
-página**: si un token choca de frente con lo que ya existe, prioriza que la página se vea como
-una sola pieza y anota el conflicto en lugar de dejar dos estilos peleando.
+La página adopta este sistema por completo. Los tokens viven en `CSS/main.css` (`:root`) con los mismos
+nombres que las claves de este documento; no hay Tailwind ni paso de build.
+
+Adaptaciones al negocio (aspirantes de 17-18 años, tráfico de anuncios en celular):
+
+- Tipografía Inter (variable, con eje de tamaño óptico) en lugar de Notion Sans. El tracking de los pasos
+  intermedios de la escala responsive se interpola entre los valores que define el documento.
+- Gutters de 20px en móvil (el documento solo define los 32px de escritorio) y ritmo de sección de 64px en
+  móvil, 96px desde 768px.
+- Botón grande `btn--lg` (52px, 16px) para los CTA a WhatsApp: extiende `button-md` con la misma geometría (8px)
+  y los mismos colores.
+- La foto real de los alumnos ocupa el lugar de `workspace-mockup-card` (12px, elevación 3): no hay interfaz de
+  producto que mostrar y, para este público, pesa más ver gente como ellos.
+
+Tensiones conocidas (decisiones, no omisiones):
+
+- El `description` del encabezado habla de "pastilla morada", pero `components` y los "Don't" piden 8px:
+  se aplicó 8px. Las píldoras se usan solo en badges.
+- Botón morado sobre azul marino: el borde del botón tiene 2.75:1 (WCAG 1.4.11 pide 3:1); la etiqueta blanca
+  sí cumple (6.6:1). Se añadió un trazo interior claro de 1px.
+- `badge-orange` (blanco sobre #dd5b00, 3.8:1) no cumple AA en texto chico: para "Cara a Cara" se usa
+  `badge-tag-orange`.
+- `stone` y `muted` no sirven como texto sobre fondo claro (2.6:1): el mínimo es `steel` (4.5:1).
+- El sistema no define modo oscuro: la página declara `color-scheme: light`.

@@ -86,6 +86,10 @@ module.exports = async function handler(req, res) {
   const valido = CODIGO_VALIDO.test(codigo);
 
   let destino = '/';
+  if (tipo === 'g' && valido) {
+    // El codigo debe llegar a la pagina para atribuir despues su boton de WhatsApp.
+    destino = `/?ref=${encodeURIComponent(codigo)}`;
+  }
   if (tipo === 'w' && valido) {
     const texto = `Hola, me interesa el curso. Vi el anuncio [${codigo}]`;
     destino = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;

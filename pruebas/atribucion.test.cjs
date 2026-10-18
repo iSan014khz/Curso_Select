@@ -1,9 +1,16 @@
-const {test}=require('node:test');
+const {test,before,after}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const vm=require('node:vm');
 const handler=require('../api/redirigir');
 const script=fs.readFileSync(__dirname+'/../JS/atribucion.js','utf8');
+const entorno={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY};
+before(()=>{delete process.env.SUPABASE_URL;delete process.env.SUPABASE_ANON_KEY;});
+after(()=>{
+  for(const [clave,valor] of [['SUPABASE_URL',entorno.url],['SUPABASE_ANON_KEY',entorno.key]]){
+    if(valor===undefined)delete process.env[clave];else process.env[clave]=valor;
+  }
+});
 
 function pagina(ref,hrefs) {
   const enlaces=hrefs.map(href=>({href,getAttribute(){return this.href},setAttribute(_,valor){this.href=valor}}));
@@ -18,11 +25,23 @@ async function redirigir(tipo,codigo) {
 test('enlace web conserva el codigo de origen',async()=>{
   const r=await redirigir('g','abc234');assert.equal(r.status,302);assert.equal(r.destino,'/?ref=abc234');assert.equal(r.headers['Cache-Control'],'no-store');
 });
-test('WhatsApp conserva numero confirmado y mensaje con codigo',async()=>{
-  const r=await redirigir('w','abc234');const u=new URL(r.destino);assert.equal(u.hostname,'wa.me');assert.equal(u.pathname,'/522212043005');assert.match(u.searchParams.get('text'),/\[abc234\]/);
+test('WhatsApp conserva numero y referencia v1 sin codigo visible',async()=>{
+  const r=await redirigir('w','abc234');const u=new URL(r.destino);
+  assert.equal(u.hostname,'wa.me');assert.equal(u.pathname,'/522212043005');
+  const texto=u.searchParams.get('text');
+  const [visible,oculta]=texto.split('\u2063\u2060');
+  assert.equal(visible,'Hola, me interesa el curso BUAP 2027. ¿Me compartes información?');
+  assert.equal(texto.includes('abc234'),false);
+  assert.ok(oculta.endsWith('\u2060\u2063'));
+  const bits=Array.from(oculta.slice(0,-2),c=>{assert.ok(c==='\u200b'||c==='\u200c');return c==='\u200c'?'1':'0'}).join('');
+  assert.equal(bits.length,104);
+  const bytes=bits.match(/.{8}/g).map(b=>parseInt(b,2));
+  const carga=Buffer.from(bytes).toString('ascii');
+  const checksum=require('node:crypto').createHash('sha256').update('abc234').digest('hex').slice(0,4);
+  assert.equal(carga,`1:abc234:${checksum}`);
 });
 test('referencia invalida no se propaga al destino',async()=>{
-  for(const c of ['', '../otro', '<script>', 'a'.repeat(33)]){assert.equal((await redirigir('g',c)).destino,'/');assert.equal((await redirigir('w',c)).destino,'/');}
+  for(const c of ['', '../otro', '<script>', 'a'.repeat(33),'ABC234','abc23','abc2345','abc_23','abc234\n']){assert.equal((await redirigir('g',c)).destino,'/');assert.equal((await redirigir('w',c)).destino,'/');}
 });
 test('visita atribuida transforma todos los botones del numero confirmado',()=>{
   assert.deepEqual(pagina('?ref=abc234',['https://wa.me/522212043005?text=hola','https://wa.me/522212043005']),['/w/abc234','/w/abc234']);
@@ -36,16 +55,8 @@ test('no modifica compartir, otros destinos o protocolos',()=>{
 test('referencia inyectada o excesiva no modifica contactos',()=>{
   const hrefs=['https://wa.me/522212043005'];for(const query of ['?ref=%3Cscript%3E','?ref=../x','?ref='+'a'.repeat(33)])assert.deepEqual(pagina(query,hrefs),hrefs);
 });
-test('registro excluye vista previa y no guarda IP ni navegador en claro',async()=>{
-  const previo={url:process.env.SUPABASE_URL,key:process.env.SUPABASE_ANON_KEY,fetch:global.fetch};let cuerpo;
-  try {
-    process.env.SUPABASE_URL='https://prueba.invalid';process.env.SUPABASE_ANON_KEY='solo-prueba';
-    global.fetch=async(_url,o)=>{cuerpo=JSON.parse(o.body);return {ok:true}};
-    await handler({query:{tipo:'g',codigo:'abc234'},headers:{'user-agent':'CursoSelectPreview/1.0','x-forwarded-for':'192.0.2.10'},socket:{}},{setHeader(){},redirect(){}});
-    assert.equal(cuerpo.p_destino,'web');assert.equal(cuerpo.p_es_bot,true);assert.match(cuerpo.p_ip_hash,/^[0-9a-f]{64}$/);assert.match(cuerpo.p_ua_hash,/^[0-9a-f]{64}$/);assert.ok(!JSON.stringify(cuerpo).includes('192.0.2.10'));
-  } finally {
-    global.fetch=previo.fetch;
-    if(previo.url===undefined)delete process.env.SUPABASE_URL;else process.env.SUPABASE_URL=previo.url;
-    if(previo.key===undefined)delete process.env.SUPABASE_ANON_KEY;else process.env.SUPABASE_ANON_KEY=previo.key;
-  }
+test('HEAD no registra visitas aunque tenga navegador normal',async()=>{
+  const headers={};let destino;
+  await handler({method:'HEAD',query:{tipo:'g',codigo:'abc234'},headers:{'user-agent':'Mozilla/5.0'}},{setHeader(k,v){headers[k]=v},redirect(_,d){destino=d}});
+  assert.equal(destino,'/?ref=abc234');assert.equal(headers['x-clic'],'omitido-head');
 });

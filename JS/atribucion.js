@@ -2,7 +2,7 @@
 (function () {
     'use strict';
     const codigo = new URLSearchParams(window.location.search).get('ref');
-    if (!codigo || !/^[A-Za-z0-9_-]{3,32}$/.test(codigo)) return;
+    if (!codigo || !/^[a-z0-9]{6}$/.test(codigo)) return;
 
     document.querySelectorAll('a[href]').forEach(function (enlace) {
         let destino;

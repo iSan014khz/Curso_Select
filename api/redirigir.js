@@ -8,14 +8,14 @@
 const crypto = require('crypto');
 
 const NUMERO_WHATSAPP = '522212043005';
-const CODIGO_VALIDO = /^[A-Za-z0-9_-]{3,32}$/;
+const CODIGO_VALIDO = /^[a-z0-9]{6}$/;
 const ESPERA_MAXIMA_MS = 1500; // solo aplica si el runtime no ofrece waitUntil
 
 // Los prefetchers de vista previa visitan el enlace al publicarlo; el reporte los excluye.
 const BOTS = new RegExp(
   [
     'facebookexternalhit', 'facebot', 'meta-external', 'facebookcatalog',
-    'whatsapp', 'twitterbot', 'linkedinbot', 'slackbot', 'slack-imgproxy',
+    'twitterbot', 'linkedinbot', 'slackbot', 'slack-imgproxy',
     'telegrambot', 'bingbot', 'bingpreview', 'googlebot', 'google-inspectiontool',
     'adsbot', 'discordbot', 'pinterest', 'redditbot', 'applebot', 'skypeuripreview',
     'embedly', 'vkshare', 'crawler', 'spider', 'preview', 'fetcher',
@@ -23,6 +23,35 @@ const BOTS = new RegExp(
   ].join('|'),
   'i'
 );
+
+// Es una heuristica: false significa "sin senal conocida", no humano comprobado.
+// "WhatsApp" por si solo no distingue su vista previa de un navegador interno.
+function esAutomatizado(req, ua) {
+  const anticipada = ['purpose', 'sec-purpose', 'x-purpose', 'x-moz', 'sec-fetch-purpose']
+    .some(nombre => /prefetch|prerender|preview/i.test(String(req.headers[nombre] || '')));
+  return !ua || BOTS.test(ua) || anticipada;
+}
+
+// Protocolo v1 compartido con el receptor de Telegram. El checksum detecta dano
+// accidental; no es una firma de identidad ni demuestra el origen de una venta.
+function referenciaInvisible(codigo) {
+  const comprobacion = crypto.createHash('sha256').update(codigo).digest('hex').slice(0, 4);
+  const datos = Buffer.from(`1:${codigo}:${comprobacion}`, 'ascii');
+  const bits = Array.from(datos, byte => byte.toString(2).padStart(8, '0')).join('');
+  return '\u2063\u2060' + bits.replace(/[01]/g, bit => bit === '1' ? '\u200c' : '\u200b') + '\u2060\u2063';
+}
+
+async function conEsperaMaxima(registro) {
+  let temporizador;
+  try {
+    return await Promise.race([
+      registro,
+      new Promise(resolver => { temporizador = setTimeout(() => resolver('timeout'), ESPERA_MAXIMA_MS); }),
+    ]);
+  } finally {
+    clearTimeout(temporizador);
+  }
+}
 
 function hash(valor) {
   const sal = process.env.HASH_SALT || 'curso-select';
@@ -91,12 +120,15 @@ module.exports = async function handler(req, res) {
     destino = `/?ref=${encodeURIComponent(codigo)}`;
   }
   if (tipo === 'w' && valido) {
-    const texto = `Hola, me interesa el curso. Vi el anuncio [${codigo}]`;
+    const texto = 'Hola, me interesa el curso BUAP 2027. ¿Me compartes información?' + referenciaInvisible(codigo);
     destino = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
   }
 
   let estadoRegistro = valido ? 'pendiente' : 'codigo-invalido';
-  if (valido) {
+  if (valido && req.method === 'HEAD') {
+    // Una comprobacion de cabeceras no demuestra que alguien abrio el enlace.
+    estadoRegistro = 'omitido-head';
+  } else if (valido) {
     const ua = String(req.headers['user-agent'] || '');
     const registro = registrarClic({
       codigo,
@@ -104,7 +136,7 @@ module.exports = async function handler(req, res) {
       // (check constraint + raise). Cualquier otro se rechaza EN SILENCIO, porque el
       // registro va en un catch que nunca bloquea la redireccion. No los cambies.
       destino: tipo === 'w' ? 'wa' : 'web',
-      esBot: !ua || BOTS.test(ua),
+      esBot: esAutomatizado(req, ua),
       ip: ipDe(req),
       ua,
     }).catch((e) => `fallo-${(e && e.name) || 'desconocido'}`);
@@ -119,10 +151,7 @@ module.exports = async function handler(req, res) {
       enSegundoPlano(registro);
       estadoRegistro = 'en-segundo-plano';
     } else {
-      estadoRegistro = await Promise.race([
-        registro,
-        new Promise((r) => setTimeout(() => r('timeout'), ESPERA_MAXIMA_MS)),
-      ]);
+      estadoRegistro = await conEsperaMaxima(registro);
     }
   }
 

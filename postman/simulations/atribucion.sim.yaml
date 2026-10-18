@@ -1,0 +1,5 @@
+simulation: cursoselect-atribucion
+routing: path
+mocks:
+  - routeKey: supabase
+    path: ../mocks/supabase/default.js

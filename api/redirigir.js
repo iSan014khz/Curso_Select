@@ -7,7 +7,9 @@
 
 const crypto = require('crypto');
 
-const NUMERO_WHATSAPP = '522212043005';
+// Identificador de WhatsApp comprobado en la cuenta mexicana del negocio.
+// El telefono nacional sigue siendo 2212043005; el enlace necesita 521.
+const NUMERO_WHATSAPP = '5212212043005';
 const CODIGO_VALIDO = /^[a-z0-9]{6}$/;
 const ESPERA_MAXIMA_MS = 1500; // solo aplica si el runtime no ofrece waitUntil
 

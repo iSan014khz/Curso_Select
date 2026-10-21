@@ -27,7 +27,7 @@ test('enlace web conserva el codigo de origen',async()=>{
 });
 test('WhatsApp conserva numero y referencia v1 sin codigo visible',async()=>{
   const r=await redirigir('w','abc234');const u=new URL(r.destino);
-  assert.equal(u.hostname,'wa.me');assert.equal(u.pathname,'/522212043005');
+  assert.equal(u.hostname,'wa.me');assert.equal(u.pathname,'/5212212043005');
   const texto=u.searchParams.get('text');
   const [visible,oculta]=texto.split('\u2063\u2060');
   assert.equal(visible,'Hola, me interesa el curso BUAP 2027. ¿Me compartes información?');
@@ -44,10 +44,19 @@ test('referencia invalida no se propaga al destino',async()=>{
   for(const c of ['', '../otro', '<script>', 'a'.repeat(33),'ABC234','abc23','abc2345','abc_23','abc234\n']){assert.equal((await redirigir('g',c)).destino,'/');assert.equal((await redirigir('w',c)).destino,'/');}
 });
 test('visita atribuida transforma todos los botones del numero confirmado',()=>{
-  assert.deepEqual(pagina('?ref=abc234',['https://wa.me/522212043005?text=hola','https://wa.me/522212043005']),['/w/abc234','/w/abc234']);
+  const enlaces=['https://wa.me/522212043005?text=hola','https://wa.me/522212043005','https://wa.me/5212212043005?text=hola','https://wa.me/5212212043005'];
+  assert.deepEqual(pagina('?ref=abc234',enlaces),Array(4).fill('/w/abc234'));
 });
 test('visita organica conserva los contactos originales',()=>{
-  const hrefs=['https://wa.me/522212043005?text=hola'];assert.deepEqual(pagina('',hrefs),hrefs);
+  const hrefs=['https://wa.me/5212212043005?text=hola'];assert.deepEqual(pagina('',hrefs),hrefs);
+});
+
+test('todos los botones organicos de la pagina usan la cuenta WhatsApp comprobada',()=>{
+  const html=fs.readFileSync(__dirname+'/../index.html','utf8');
+  const destinos=[...html.matchAll(/href="(https:\/\/wa\.me\/[^"\s]+)"/g)].map(m=>new URL(m[1]));
+  const contactos=destinos.filter(u=>u.pathname!=='/');
+  assert.equal(contactos.length,6);
+  assert.ok(contactos.every(u=>u.pathname==='/5212212043005'));
 });
 test('no modifica compartir, otros destinos o protocolos',()=>{
   const hrefs=['https://wa.me/?text=compartir','https://wa.me/520000000000','https://otro.example/522212043005','http://wa.me/522212043005','#precio','javascript:void(0)'];assert.deepEqual(pagina('?ref=abc234',hrefs),hrefs);

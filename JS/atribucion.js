@@ -10,7 +10,7 @@
         catch (_) { return; }
         // Compartir la pagina en WhatsApp no es contactar al negocio.
         if (destino.protocol !== 'https:' || destino.hostname !== 'wa.me' ||
-            destino.pathname !== '/522212043005') return;
+            !['/522212043005', '/5212212043005'].includes(destino.pathname)) return;
         enlace.setAttribute('href', '/w/' + encodeURIComponent(codigo));
     });
 })();

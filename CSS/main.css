@@ -40,6 +40,27 @@
 /* --------------------------------------------------------------------------
    Tokens
    -------------------------------------------------------------------------- */
+/* Diagnostico orientativo: controles nativos y la misma paleta del sitio. */
+.diagnostico { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; align-items: start; }
+.diagnostico__tarjeta { background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px; padding: clamp(20px, 4vw, 36px); min-width: 0; }
+.diagnostico__tarjeta h3 { font-size: 1.35rem; line-height: 1.3; margin: 16px 0; }
+.diagnostico__tarjeta p { margin: 14px 0; line-height: 1.6; }
+.diagnostico__nota { color: var(--slate); font-size: .875rem; line-height: 1.6; margin-top: 20px; }
+.diagnostico__tarjeta fieldset { border: 0; padding: 0; margin: 24px 0; min-width: 0; }
+.diagnostico__tarjeta legend { font-weight: 600; font-size: 1.125rem; line-height: 1.5; margin-bottom: 20px; }
+.diagnostico__tarjeta progress { width: 100%; height: 8px; accent-color: var(--primary); }
+.diagnostico__opciones { display: grid; gap: 10px; }
+.diagnostico__opcion { display: flex; gap: 12px; align-items: center; padding: 14px; min-height: 48px; border: 1px solid var(--hairline-strong); border-radius: 8px; cursor: pointer; font-size: 1rem; }
+.diagnostico__opcion:has(input:checked) { border-color: var(--primary); background: var(--card-tint-lavender); }
+.diagnostico__opcion:focus-within { outline: 2px solid var(--primary); outline-offset: 2px; }
+.diagnostico__opcion input { accent-color: var(--primary); width: 20px; height: 20px; flex-shrink: 0; margin: 0; }
+.diagnostico__acciones { display: flex; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
+.diagnostico__porcentaje { font-size: 3.5rem; letter-spacing: -.06em; color: var(--primary); display: block; }
+.diagnostico__areas { display: grid; gap: 10px; padding-left: 20px; margin: 20px 0; }
+.diagnostico__repetir { display: block; margin: 18px auto 0; padding: 12px; min-height: 44px; background: none; border: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }
+#mini-diagnostico [hidden] { display: none !important; }
+@media (max-width: 767px) { .diagnostico { grid-template-columns: 1fr; gap: 24px; } }
+
 :root {
     /* Color · marca */
     --primary: #5645d4;

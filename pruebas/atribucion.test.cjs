@@ -30,7 +30,7 @@ test('WhatsApp conserva numero y referencia v1 sin codigo visible',async()=>{
   assert.equal(u.hostname,'wa.me');assert.equal(u.pathname,'/5212212043005');
   const texto=u.searchParams.get('text');
   const [visible,oculta]=texto.split('\u2063\u2060');
-  assert.equal(visible,'Hola, me interesa el curso BUAP 2027. ¿Me compartes información?');
+  assert.equal(visible,'Hola, me interesa el curso BUAP 2027 con la app incluida hasta el 19 de junio de 2027. ¿Me compartes información?');
   assert.equal(texto.includes('abc234'),false);
   assert.ok(oculta.endsWith('\u2060\u2063'));
   const bits=Array.from(oculta.slice(0,-2),c=>{assert.ok(c==='\u200b'||c==='\u200c');return c==='\u200c'?'1':'0'}).join('');
@@ -55,8 +55,9 @@ test('todos los botones organicos de la pagina usan la cuenta WhatsApp comprobad
   const html=fs.readFileSync(__dirname+'/../index.html','utf8');
   const destinos=[...html.matchAll(/href="(https:\/\/wa\.me\/[^"\s]+)"/g)].map(m=>new URL(m[1]));
   const contactos=destinos.filter(u=>u.pathname!=='/');
-  assert.equal(contactos.length,6);
+  assert.equal(contactos.length,7);
   assert.ok(contactos.every(u=>u.pathname==='/5212212043005'));
+  assert.equal(new Set(contactos.map(u=>u.searchParams.get('text'))).size,1,'misma oferta en cada CTA');
 });
 test('no modifica compartir, otros destinos o protocolos',()=>{
   const hrefs=['https://wa.me/?text=compartir','https://wa.me/520000000000','https://otro.example/522212043005','http://wa.me/522212043005','#precio','javascript:void(0)'];assert.deepEqual(pagina('?ref=abc234',hrefs),hrefs);

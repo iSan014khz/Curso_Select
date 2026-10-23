@@ -1,0 +1,80 @@
+[
+  {
+    "id": "M1-1",
+    "tema": "salud-publica-epidemiologia",
+    "nombreTema": "Salud pública",
+    "enunciado": "Un brote de fiebre tifoidea en una escuela primaria es investigado por las autoridades de salud. Se descubre que la cocinera del plantel, quien no presenta síntomas, es portadora de la bacteria Salmonella typhi y contamina los alimentos con las manos sucias. En la cadena epidemiológica de este brote, ¿qué eslabón representa la cocinera?",
+    "opciones": {
+      "A": "Medio ambiente",
+      "B": "Agente causal",
+      "C": "Reservorio",
+      "D": "Puerta de entrada"
+    },
+    "correcta": "C"
+  },
+  {
+    "id": "M1-2",
+    "tema": "salud-publica-epidemiologia",
+    "nombreTema": "Salud pública",
+    "enunciado": "Una campaña de tamizaje busca detectar una enfermedad en personas que todavía no presentan síntomas. ¿A qué nivel de prevención corresponde?",
+    "opciones": {
+      "A": "Prevención primaria",
+      "B": "Prevención secundaria",
+      "C": "Prevención terciaria",
+      "D": "Prevención cuaternaria"
+    },
+    "correcta": "B"
+  },
+  {
+    "id": "M1-3",
+    "tema": "microbiologia-parasitologia",
+    "nombreTema": "Microbiología",
+    "enunciado": "Un paciente de una comunidad rural acude al médico con fiebre y una inflamación indolora en un solo ojo (signo de Romaña). Al interrogarlo, refiere que su vivienda es de adobe y que suele ver insectos conocidos como \"chinches besuconas\". ¿Cuál es el principal mecanismo de transmisión de la enfermedad parasitaria que padece?",
+    "opciones": {
+      "A": "Contacto con heces de la chinche infectada tras su picadura",
+      "B": "Ingestión de agua o alimentos contaminados con quistes",
+      "C": "Picadura directa e inoculación de saliva de un mosquito",
+      "D": "Inhalación de esporas presentes en las heces del vector"
+    },
+    "correcta": "A"
+  },
+  {
+    "id": "M1-4",
+    "tema": "microbiologia-parasitologia",
+    "nombreTema": "Microbiología",
+    "enunciado": "¿Qué tipo de microorganismo es el agente causal de la tuberculosis, el cual se caracteriza por ser unicelular, carecer de membrana nuclear y reproducirse por fisión binaria?",
+    "opciones": {
+      "A": "Hongo",
+      "B": "Virus",
+      "C": "Bacteria",
+      "D": "Protozoario"
+    },
+    "correcta": "C"
+  },
+  {
+    "id": "M1-5",
+    "tema": "farmacologia",
+    "nombreTema": "Farmacología",
+    "enunciado": "Una sustancia se une al mismo sitio de un receptor que su agonista, pero no lo activa. Su bloqueo puede superarse al aumentar la concentración del agonista. ¿Cómo actúa esa sustancia?",
+    "opciones": {
+      "A": "Agonista inverso",
+      "B": "Agonista parcial",
+      "C": "Antagonista no competitivo",
+      "D": "Antagonista competitivo"
+    },
+    "correcta": "D"
+  },
+  {
+    "id": "M1-6",
+    "tema": "farmacologia",
+    "nombreTema": "Farmacología",
+    "enunciado": "En un experimento, X y Y alcanzan el mismo efecto máximo. Z alcanza un efecto máximo menor, pero necesita la menor concentración para alcanzar el 50% de su propio efecto máximo. ¿Qué conclusión es correcta?",
+    "opciones": {
+      "A": "Z es el más eficaz porque requiere menor concentración",
+      "B": "Y es más potente porque requiere mayor concentración",
+      "C": "X y Y tienen la misma eficacia; Z es el más potente",
+      "D": "X es más eficaz que Y; Z es el menos potente"
+    },
+    "correcta": "C"
+  }
+]

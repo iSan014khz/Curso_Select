@@ -121,8 +121,10 @@ module.exports = async function handler(req, res) {
     // El codigo debe llegar a la pagina para atribuir despues su boton de WhatsApp.
     destino = `/?ref=${encodeURIComponent(codigo)}`;
   }
-  if (tipo === 'w' && valido) {
-    const texto = 'Hola, quiero información del curso BUAP 2027 y del primer mes gratis de la app.' + referenciaInvisible(codigo);
+  const diagnostico = typeof req.query.dm === 'string' ? require('../JS/medicina-evaluacion').evaluar(req.query.dm, require('../datos/diagnostico-medicina-v1.json')) : null;
+  if (tipo === 'w' && (valido || diagnostico)) {
+    const base = diagnostico ? 'Hola, hice el diagnóstico de Medicina y obtuve ' + diagnostico.porcentaje + '% (' + diagnostico.correctas + '/6). Quiero mi desglose por tema y conocer cómo inscribirme al curso BUAP 2027.\n\nResumen de la muestra:\n' + diagnostico.temas.map(t => t.nombre + ': ' + t.correctas + '/' + t.total).join('\n') + '\nReferencia del diagnóstico: ' + req.query.dm + '\nEntiendo que es una muestra orientativa.' : 'Hola, quiero información del curso BUAP 2027 y del primer mes gratis de la app.';
+    const texto = base + (valido ? referenciaInvisible(codigo) : '');
     destino = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
   }
 

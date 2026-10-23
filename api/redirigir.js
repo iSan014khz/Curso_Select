@@ -122,7 +122,7 @@ module.exports = async function handler(req, res) {
     destino = `/?ref=${encodeURIComponent(codigo)}`;
   }
   if (tipo === 'w' && valido) {
-    const texto = 'Hola, me interesa el curso BUAP 2027 con la app incluida hasta el 19 de junio de 2027. ¿Me compartes información?' + referenciaInvisible(codigo);
+    const texto = 'Hola, quiero información del curso BUAP 2027 y del primer mes gratis de la app.' + referenciaInvisible(codigo);
     destino = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
   }
 

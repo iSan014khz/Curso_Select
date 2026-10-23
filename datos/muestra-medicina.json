@@ -1,0 +1,17 @@
+{
+  "enunciado_md": "De acuerdo con el modelo de la tríada ecológica de Leavell y Clark, ¿cuál de los siguientes elementos corresponde a una característica intrínseca del huésped que influye en la probabilidad de desarrollar una enfermedad?",
+  "opciones": {
+    "A": "Estado inmunológico",
+    "B": "Clima templado",
+    "C": "Virulencia del microorganismo",
+    "D": "Presencia de vectores"
+  },
+  "correcta": "A",
+  "retro": {
+    "A": "Correcto. El estado inmunológico es una característica propia del individuo (huésped) que determina su susceptibilidad o resistencia ante un agente causal.",
+    "B": "El clima es un factor físico que pertenece al componente del medio ambiente, no al huésped.",
+    "C": "La virulencia es una propiedad intrínseca del agente causal (capacidad de producir casos graves de la enfermedad), no del huésped.",
+    "D": "Los vectores son organismos biológicos que forman parte del medio ambiente (o son eslabones en la cadena epidemiológica), no características del huésped."
+  },
+  "tema_slug": "salud-publica-epidemiologia"
+}

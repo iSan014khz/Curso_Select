@@ -55,6 +55,7 @@
 .diagnostico__opcion:focus-within { outline: 2px solid var(--primary); outline-offset: 2px; }
 .diagnostico__opcion input { accent-color: var(--primary); width: 20px; height: 20px; flex-shrink: 0; margin: 0; }
 .diagnostico__acciones { display: flex; gap: 12px; justify-content: space-between; flex-wrap: wrap; }
+.diagnostico__tarjeta .btn { white-space: normal; overflow-wrap: anywhere; }
 .diagnostico__porcentaje { font-size: 3.5rem; letter-spacing: -.06em; color: var(--primary); display: block; }
 .diagnostico__areas { display: grid; gap: 10px; padding-left: 20px; margin: 20px 0; }
 .diagnostico__repetir { display: block; margin: 18px auto 0; padding: 12px; min-height: 44px; background: none; border: 0; color: var(--primary); font: inherit; text-decoration: underline; cursor: pointer; }

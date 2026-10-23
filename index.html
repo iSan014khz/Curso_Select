@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
     <title>Asesorías Select BUAP 2027 | Tu Futuro Universitario</title>
     <meta name="description"
-        content="8 asesoras expertas, 4 áreas del examen, modalidad virtual y presencial. Asegura tu lugar en la BUAP 2027 con Asesorías Select." />
+        content="Prepárate para BUAP 2027 con clases virtuales o presenciales y app incluida hasta el 19 de junio de 2027 al inscribirte con nosotros. Un solo pago de $450 MXN." />
     <!-- Color de la barra del navegador en el celular: el mismo azul marino del encabezado -->
     <meta name="theme-color" content="#0a1530" />
     <meta name="color-scheme" content="light" />
@@ -214,7 +214,7 @@
                     <li><a class="nav__link" href="#modalidad">Modalidad</a></li>
                     <li><a class="nav__link" href="#precio">Inversión</a></li>
                 </ul>
-                <a href="https://wa.me/5212212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
                     target="_blank" rel="noopener noreferrer" class="btn btn--primary nav__cta">
                     <svg class="icon icon--sm" aria-hidden="true">
                         <use href="#i-message-circle" />
@@ -239,7 +239,7 @@
             <a href="#modalidad" class="menu__link" style="--i:1">Modalidad</a>
             <a href="#precio" class="menu__link" style="--i:2">Inversión</a>
             <div class="menu__cta" style="--i:3">
-                <a href="https://wa.me/5212212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
                     target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--block">
                     <svg class="icon icon--sm" aria-hidden="true">
                         <use href="#i-message-circle" />
@@ -262,20 +262,20 @@
 
                     <div>
                         <span class="hero__eyebrow" data-hero>Admisión BUAP 2027</span>
-                        <h1 class="hero__title" id="hero-titulo" data-hero>Asegura tu lugar en la BUAP 2027</h1>
+                        <h1 class="hero__title" id="hero-titulo" data-hero>Prepárate para la BUAP. Practica también entre clases.</h1>
                         <p class="hero__lead" data-hero>
-                            8 asesoras expertas, 4 áreas del examen, un solo pago de <strong>$450 MXN</strong>. El
-                            camino a la universidad comienza aquí.
+                            Clases para las 4 áreas y <strong>app de estudio incluida hasta el 19 de junio de 2027</strong>
+                            al inscribirte con nosotros. Un solo pago de <strong>$450 MXN</strong>.
                         </p>
                         <div class="hero__actions" data-hero>
-                            <a href="https://wa.me/5212212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                            <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
                                 target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
                                 <svg class="icon icon--sm" aria-hidden="true">
                                     <use href="#i-message-circle" />
                                 </svg>
                                 ¡Inscribirme Hoy!
                             </a>
-                            <a href="#modalidad" class="btn btn--secondary-on-dark btn--lg">Ver modalidades</a>
+                            <a href="#diagnostico" class="btn btn--secondary-on-dark btn--lg">Probar diagnóstico gratis</a>
                         </div>
                     </div>
 
@@ -289,6 +289,55 @@
                         </picture>
                     </figure>
 
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--surface" id="diagnostico" aria-labelledby="diagnostico-titulo">
+            <div class="container diagnostico">
+                <div>
+                    <p class="eyebrow">Tu punto de partida</p>
+                    <h2 class="section-title" id="diagnostico-titulo">¿Qué puedes reforzar antes del examen?</h2>
+                    <p class="section-lead">Responde 6 preguntas de matemáticas y comprensión lectora.
+                        Conoce tus aciertos y descubre por dónde empezar a practicar.</p>
+                    <p class="diagnostico__nota">Es una muestra orientativa, no un examen oficial ni una estimación
+                        de tus posibilidades de ingreso. No necesitas dejar tus datos.</p>
+                </div>
+                <div class="diagnostico__tarjeta" id="mini-diagnostico">
+                    <div data-diagnostico-inicio>
+                        <span class="tag tag--purple">6 preguntas · Sin registro</span>
+                        <h3>Un primer vistazo a tu preparación</h3>
+                        <p>Al terminar verás tu porcentaje de aciertos y un desglose por área.</p>
+                        <button type="button" class="btn btn--primary btn--lg" data-empezar disabled>Comenzar diagnóstico</button>
+                        <noscript><p>Activa JavaScript para responder el diagnóstico. Puedes consultar el curso por WhatsApp sin hacerlo.</p></noscript>
+                    </div>
+                    <form hidden>
+                        <p class="diagnostico__paso" data-paso></p>
+                        <progress max="6" value="1" aria-label="Avance del diagnóstico"></progress>
+                        <fieldset>
+                            <legend tabindex="-1"></legend>
+                            <div class="diagnostico__opciones" data-opciones></div>
+                        </fieldset>
+                        <div class="diagnostico__acciones">
+                            <button type="button" class="btn btn--secondary" data-atras>Anterior</button>
+                            <button type="submit" class="btn btn--primary">Siguiente</button>
+                        </div>
+                    </form>
+                    <div data-diagnostico-resultado hidden>
+                        <p class="eyebrow">Tu resultado en esta muestra</p>
+                        <h3 tabindex="-1"><span class="diagnostico__porcentaje" data-porcentaje></span> de aciertos</h3>
+                        <p data-aciertos></p>
+                        <progress max="100" value="0" aria-label="Porcentaje de aciertos"></progress>
+                        <ul class="diagnostico__areas" data-areas></ul>
+                        <p data-orientacion></p>
+                        <p>Continúa tu preparación en la app incluida con tu inscripción: más ejercicios,
+                            explicaciones y simulacros para practicar a tu ritmo.</p>
+                        <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
+                            target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--block">Inscribirme y continuar en la app</a>
+                        <button type="button" class="diagnostico__repetir" data-repetir>Volver a intentarlo</button>
+                        <p class="diagnostico__nota">Tus respuestas se calculan en este navegador y no se guardan.
+                            El porcentaje corresponde solo a estas 6 preguntas.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -440,10 +489,10 @@
                         <span class="price-card__currency">Pesos</span>
                     </p>
                     <p class="price-card__text">
-                        Sin mensualidades ni costos ocultos. Acceso total a las plataformas, clases en vivo y
-                        materiales físicos/digitales.
+                        Clases en vivo, materiales y app de estudio incluida hasta el 19 de junio de 2027
+                        al inscribirte con nosotros. Sin mensualidad adicional de la app durante ese periodo.
                     </p>
-                    <a href="https://wa.me/5212212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                    <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
                         target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
                         <svg class="icon icon--sm" aria-hidden="true">
                             <use href="#i-message-circle" />
@@ -512,8 +561,9 @@
                 <div class="section-head" data-reveal>
                     <p class="eyebrow">Plataforma de estudio</p>
                     <h2 class="section-title" id="plataforma-titulo">Practica, compite y simula el examen</h2>
-                    <p class="section-lead">Además de las clases en vivo, tendrás una plataforma para practicar por tu
-                        cuenta con preguntas tipo EXANI II. Tu acceso se activa cuando se confirma tu pago.</p>
+                    <p class="section-lead">Al inscribirte con nosotros, tu app de estudio está incluida hasta el
+                        <strong>19 de junio de 2027</strong>. Se activa al confirmar tu pago del curso.
+                        Practica por tu cuenta entre clases, sin una mensualidad adicional durante ese periodo.</p>
                 </div>
                 <div class="cards cards--platform">
                     <article class="card tint-sky" data-reveal data-lift>
@@ -577,7 +627,7 @@
                     </article>
                 </div>
                 <div class="cta-row" data-reveal>
-                    <a href="https://wa.me/5212212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                    <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
                         target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">
                         <svg class="icon icon--sm" aria-hidden="true">
                             <use href="#i-message-circle" />
@@ -632,7 +682,7 @@
 
                             <!-- WhatsApp -->
                             <li>
-                                <a href="https://wa.me/5212212043005?text=Holaa,%20me%20gustaría%20asegurar%20mi%20lugar%20en%20BUAP."
+                                <a href="https://wa.me/5212212043005?text=Hola%2C%20me%20interesa%20el%20curso%20BUAP%202027%20con%20la%20app%20incluida%20hasta%20el%2019%20de%20junio%20de%202027.%20%C2%BFMe%20compartes%20informaci%C3%B3n%3F"
                                     target="_blank" rel="noopener noreferrer" class="footer__link">
                                     <svg class="icon icon--sm" aria-hidden="true">
                                         <use href="#i-message-circle" />
@@ -795,6 +845,7 @@
         }</script>
     <script src="JS/animaciones.js"></script>
     <script src="JS/atribucion.js"></script>
+    <script src="JS/diagnostico.js"></script>
 </body>
 
 </html>

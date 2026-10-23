@@ -1,0 +1,2 @@
+Official @hugeicons/core-free-icons 4.3.5, Stroke Rounded, MIT. https://www.npmjs.com/package/@hugeicons/core-free-icons
+Only seven icons bundled as local SVG symbols, without runtime dependency.

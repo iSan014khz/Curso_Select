@@ -1,0 +1,10 @@
+const test=require('node:test'),assert=require('node:assert/strict');
+const {evaluar}=require('../JS/medicina-evaluacion');const preguntas=require('../datos/diagnostico-medicina-v1.json');const handler=require('../api/redirigir');
+test('muestra completa, temas equilibrados y puntuaciones extremas y parciales',()=>{
+ const bien='M1-'+preguntas.map(q=>q.correcta).join('');const mal='M1-'+preguntas.map(q=>q.correcta==='A'?'B':'A').join('');
+ assert.equal(evaluar(bien,preguntas).porcentaje,100);assert.equal(evaluar(mal,preguntas).porcentaje,0);assert.deepEqual(evaluar(bien,preguntas).temas.map(t=>t.total),[2,2,2]);const mitad='M1-'+preguntas.map((q,i)=>i<3?q.correcta:(q.correcta==='A'?'B':'A')).join('');assert.equal(evaluar(mitad,preguntas).porcentaje,50);
+});
+test('no evalua respuestas incompletas, inyectadas ni de otra version',()=>{for(const r of ['M1-ABC','M2-ABCABC','M1-ABCABE','M1-ABCABC<script>',null,['M1-ABCABC']])assert.equal(evaluar(r,preguntas),null);});
+async function destino(query){const res={headers:{},setHeader(k,v){this.headers[k]=v},redirect(status,url){this.status=status;this.url=url}};await handler({query:{tipo:'w',...query},headers:{},method:'HEAD'},res);return res;}
+test('WhatsApp recibe resumen real y referencia del anuncio sin registrar HEAD',async()=>{const r=await destino({codigo:'z4f7hc',dm:'M1-'+preguntas.map(q=>q.correcta).join('')});const u=new URL(r.url),t=u.searchParams.get('text');assert.equal(r.status,302);assert.equal(u.pathname,'/5212212043005');assert.match(t,/100% \(6\/6\)/);assert.match(t,/Salud pública: 2\/2/);assert.ok(t.includes('\u2063\u2060'));assert.equal(r.headers['x-clic'],'omitido-head');});
+test('organico admite resumen sin atribuir anuncio; dm invalido conserva ruta anterior',async()=>{const r=await destino({dm:'M1-ABCABC'});assert.ok(new URL(r.url).searchParams.get('text').includes('Resumen de la muestra'));assert.ok(!r.url.includes('%E2%81%A3'));const bad=await destino({codigo:'z4f7hc',dm:'M1-<bad>'});assert.ok(new URL(bad.url).searchParams.get('text').startsWith('Hola, quiero información del curso'));assert.equal((await destino({dm:'M1-<bad>'})).url,'/');});

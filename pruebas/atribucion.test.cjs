@@ -30,7 +30,8 @@ test('WhatsApp conserva numero y referencia v1 sin codigo visible',async()=>{
   assert.equal(u.hostname,'wa.me');assert.equal(u.pathname,'/5212212043005');
   const texto=u.searchParams.get('text');
   const [visible,oculta]=texto.split('\u034f\u2063\u2060');
-  assert.equal(visible,'Hola, quiero información del curso BUAP 2027 y del primer mes gratis de la app.');
+  assert.equal(visible,'');
+  assert.match(texto,/^[\u034f\u2063\u2060\u200b\u200c]+$/);
   assert.equal(texto.includes('abc234'),false);
   assert.ok(oculta.endsWith('\u2060\u2063\u034f'));
   const bits=Array.from(oculta.slice(0,-3),c=>{assert.ok(c==='\u200b'||c==='\u200c');return c==='\u200c'?'1':'0'}).join('');

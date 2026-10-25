@@ -126,7 +126,8 @@ module.exports = async function handler(req, res) {
   const diagnostico = typeof req.query.dm === 'string' ? require('../JS/medicina-evaluacion').evaluar(req.query.dm, require('../datos/diagnostico-medicina-v1.json')) : null;
   if (tipo === 'w' && (valido || diagnostico)) {
     const base = diagnostico ? 'Hola, hice el diagnóstico de Medicina y obtuve ' + diagnostico.porcentaje + '% (' + diagnostico.correctas + '/6). Quiero mi desglose por tema y conocer cómo inscribirme al curso BUAP 2027.\n\nResumen de la muestra:\n' + diagnostico.temas.map(t => t.nombre + ': ' + t.correctas + '/' + t.total).join('\n') + '\nReferencia del diagnóstico: ' + req.query.dm + '\nEntiendo que es una muestra orientativa.' : 'Hola, quiero información del curso BUAP 2027 y del primer mes gratis de la app.';
-    const texto = base + (valido ? referenciaInvisible(codigo) : '');
+    // La visita de campaña deja el cuadro aparentemente vacio, con solo su referencia.
+    const texto = valido ? referenciaInvisible(codigo) : base;
     destino = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(texto)}`;
   }
 

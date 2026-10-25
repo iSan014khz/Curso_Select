@@ -40,7 +40,9 @@ function referenciaInvisible(codigo) {
   const comprobacion = crypto.createHash('sha256').update(codigo).digest('hex').slice(0, 4);
   const datos = Buffer.from(`1:${codigo}:${comprobacion}`, 'ascii');
   const bits = Array.from(datos, byte => byte.toString(2).padStart(8, '0')).join('');
-  return '\u2063\u2060' + bits.replace(/[01]/g, bit => bit === '1' ? '\u200c' : '\u200b') + '\u2060\u2063';
+  // CGJ en ambos extremos: conserva el protocolo v1 que interpreta Telegram.
+  // Probado manualmente en WhatsApp; no garantiza retencion si borran el texto.
+  return '\u034f\u2063\u2060' + bits.replace(/[01]/g, bit => bit === '1' ? '\u200c' : '\u200b') + '\u2060\u2063\u034f';
 }
 
 async function conEsperaMaxima(registro) {
